@@ -1,4 +1,35 @@
+import { useState } from "react";
+
 function Contact() {
+  const [formStatus, setFormStatus] = useState("idle");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    setFormStatus("sending");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/mqpzgzlr", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Message failed to send");
+      }
+
+      form.reset();
+      setFormStatus("success");
+    } catch {
+      setFormStatus("error");
+    }
+  }
+
   return (
     <section className="min-h-screen bg-black text-white px-9 py-50">
       <div className="max-w-6xl mx-auto">
@@ -74,28 +105,45 @@ function Contact() {
 
           <div className="space-y-6">
             <div className="flex justify-between border-b border-zinc-800 py-4">
-              <p className="text-gray-400 hover:text-cyan-500 cursor-pointer">
+              <a
+                href="mailto:shaya.brz@gmail.com"
+                className="text-gray-400 hover:text-cyan-500 cursor-pointer"
+              >
                 shaya.brz@gmail.com
-              </p>
+              </a>
             </div>
 
             <div className="flex justify-between border-b border-zinc-800 py-4">
-              <p className="text-gray-400 hover:text-cyan-500 cursor-pointer">
+              <a
+                href="https://github.com/ludifers"
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-400 hover:text-cyan-500 cursor-pointer"
+              >
                 GitHub
-              </p>
+              </a>
             </div>
 
-            <p className="text-gray-400 hover:text-cyan-500 cursor-pointer">
+            <a
+              href="https://www.linkedin.com/in/shaya-akbari-251630301/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-400 hover:text-cyan-500 cursor-pointer"
+            >
               LinkedIn
-            </p>
+            </a>
           </div>
         </div>
 
-        <div className="bg-zinc-950 border border-cyan-700 rounded-2xl p-4 mt-16 hover:border-cyan-500 transition duration-300">
-          <button className="w-full text-center text-gray-400 hover:text-cyan-400 transition">
+        <a
+          href="/shay-akbari-resume.pdf"
+          download
+          className="block bg-zinc-950 border border-cyan-700 rounded-2xl p-4 mt-16 hover:border-cyan-500 transition duration-300"
+        >
+          <span className="block w-full text-center text-gray-400 hover:text-cyan-400 transition">
             DOWNLOAD_RESUME.PDF
-          </button>
-        </div>
+          </span>
+        </a>
 
         <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-8 mt-16">
           <div className="flex items-center gap-2 mb-8 border-b border-zinc-800 pb-4">
@@ -107,12 +155,17 @@ function Contact() {
             </p>
           </div>
 
-          <form className="space-y-5">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-5"
+          >
             <div>
               <label className="block text-gray-500 text-sm mb-2">NAME *</label>
               <input
                 type="text"
+                name="name"
                 placeholder="guest"
+                required
                 className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-400"
               />
             </div>
@@ -122,8 +175,10 @@ function Contact() {
                 EMAIL *
               </label>
               <input
-                type="text"
+                type="email"
+                name="email"
                 placeholder="guest@company.com"
+                required
                 className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-400"
               />
             </div>
@@ -134,7 +189,9 @@ function Contact() {
               </label>
               <input
                 type="text"
+                name="subject"
                 placeholder='--subject "Internship Opportunity" '
+                required
                 className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-400"
               />
             </div>
@@ -144,18 +201,33 @@ function Contact() {
                 MESSAGE *
               </label>
               <textarea
-                type="text"
-                placeholder="Tpe your message here..."
+                name="message"
+                placeholder="Type your message here..."
+                required
                 className="w-full h-36 bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-400 resize-none"
               />
             </div>
 
             <button
               type="submit"
+              disabled={formStatus === "sending"}
               className="px-6 py-3 bg-cyan-400 text-black rounded-xl font-semibold hover:bg-cyan-300 transition"
             >
-              SEND_MESSAGE
+              {formStatus === "sending" ? "SENDING..." : "SEND_MESSAGE"}
             </button>
+
+            {formStatus === "success" && (
+              <p className="text-cyan-400 font-semibold">
+                MESSAGE_SENT // Thank you, your message was submitted
+                successfully.
+              </p>
+            )}
+
+            {formStatus === "error" && (
+              <p className="text-red-400 font-semibold">
+                MESSAGE_FAILED // Please try again or email me directly.
+              </p>
+            )}
           </form>
         </div>
       </div>
