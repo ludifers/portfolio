@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function Contact() {
+  const formRef = useRef(null);
   const [formStatus, setFormStatus] = useState("idle");
 
-  async function handleSubmit(event) {
-    event.preventDefault();
+  async function handleSubmit() {
+    const form = formRef.current;
+
+    if (!form || !form.reportValidity()) {
+      return;
+    }
+
     setFormStatus("sending");
 
-    const form = event.currentTarget;
     const formData = new FormData(form);
 
     try {
@@ -156,9 +161,18 @@ function Contact() {
           </div>
 
           <form
-            onSubmit={handleSubmit}
+            ref={formRef}
+            onSubmit={(event) => event.preventDefault()}
             className="space-y-5"
           >
+            <input
+              type="text"
+              name="_gotcha"
+              className="hidden"
+              tabIndex="-1"
+              autoComplete="off"
+            />
+
             <div>
               <label className="block text-gray-500 text-sm mb-2">NAME *</label>
               <input
@@ -209,9 +223,10 @@ function Contact() {
             </div>
 
             <button
-              type="submit"
+              type="button"
+              onClick={handleSubmit}
               disabled={formStatus === "sending"}
-              className="px-6 py-3 bg-cyan-400 text-black rounded-xl font-semibold hover:bg-cyan-300 transition"
+              className="px-6 py-3 bg-cyan-400 text-black rounded-xl font-semibold hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70 transition"
             >
               {formStatus === "sending" ? "SENDING..." : "SEND_MESSAGE"}
             </button>
