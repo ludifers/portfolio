@@ -2,14 +2,16 @@ import {Routes,Route, useLocation}from "react-router-dom"
 import { useEffect } from "react"
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
+import About from "./components/About"
 import Projects from "./components/Projects"
 import Skills from "./components/Skills"
 import Contact from "./components/Contact"
 
 function Homepage() {
   return (
-    <div>
+    <div className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
       <Hero />
+      <About />
       <Skills />
       <Projects preview />
     </div>
@@ -47,4 +49,3 @@ function App()
   )
 }
 export default App
-

@@ -45,8 +45,8 @@ function Contact() {
         <h1 className="text-5xl font-bold mt-6">Get In Touch</h1>
 
         <p className="text-gray-400 mt-4 max-w-2xl leading-relaxed">
-          Currently seeking Summer 2026 internship opportunities in embedded
-          systems, FPGA design, and computer architecture.
+          Currently seeking job opportunities in embedded systems, FPGA design,
+          and computer architecture.
         </p>
 
         <div className="w-20 h-px bg-cyan-400 mt-6"></div>
@@ -91,14 +91,14 @@ function Contact() {
               <span className="text-gray-500 text-sm font-semibold">
                 STATUS
               </span>
-              <span className="font-semibold">SEEKING INTERNSHIP</span>
+              <span className="font-semibold">SEEKING JOB</span>
             </div>
 
             <div className="flex justify-between py-4">
               <span className="text-gray-500 text-sm font-semibold">
                 AVAILABILITY
               </span>
-              <span className="font-semibold">SUMMER 2026</span>
+              <span className="font-semibold">OPEN</span>
             </div>
           </div>
         </div>
@@ -204,7 +204,7 @@ function Contact() {
               <input
                 type="text"
                 name="subject"
-                placeholder='--subject "Internship Opportunity" '
+                placeholder='--subject "Job Opportunity" '
                 required
                 className="w-full bg-zinc-900 border border-zinc-800 rounded-xl px-4 py-3 text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan-400"
               />

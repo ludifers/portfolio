@@ -28,7 +28,7 @@ const skillGroups = [
 
 function Skills() {
   return (
-    <section className="bg-black text-white py-24 px-8">
+    <section className="min-h-screen snap-start bg-black text-white px-8 pt-28 pb-16 flex items-center">
       <div className="max-w-6xl mx-auto">
         <p className="text-gray-600 tracking-[0.4em] text-sm text-center">
           SYSTEM_CAPABILITIES
@@ -41,11 +41,11 @@ function Skills() {
           workflows.
         </p>
 
-        <div className="grid md:grid-cols-2 gap-5 mt-12">
+        <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-4 mt-10">
           {skillGroups.map((group) => (
             <div
               key={group.title}
-              className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-6 hover:border-cyan-500 transition duration-300"
+              className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 hover:border-cyan-500 transition duration-300"
             >
               <div className="flex items-center justify-between gap-4 border-b border-zinc-800 pb-4">
                 <h3 className="text-cyan-400 font-semibold tracking-[0.2em] text-sm">
@@ -56,15 +56,15 @@ function Skills() {
                 </span>
               </div>
 
-              <p className="text-gray-500 mt-4 leading-relaxed">
+              <p className="text-gray-500 mt-4 leading-relaxed text-sm">
                 {group.summary}
               </p>
 
-              <div className="flex flex-wrap gap-3 mt-6">
+              <div className="flex flex-wrap gap-2 mt-5">
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="border border-zinc-800 bg-zinc-900 text-gray-300 rounded-lg px-3 py-2 text-sm hover:text-cyan-400 hover:border-cyan-800 transition"
+                    className="border border-zinc-800 bg-zinc-900 text-gray-300 rounded-lg px-2.5 py-2 text-sm hover:text-cyan-400 hover:border-cyan-800 transition"
                   >
                     {skill}
                   </span>
