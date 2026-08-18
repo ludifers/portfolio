@@ -11,7 +11,7 @@ function Homepage() {
     <div>
       <Hero />
       <Skills />
-      <Projects />
+      <Projects preview />
     </div>
   )
 }
@@ -47,5 +47,4 @@ function App()
   )
 }
 export default App
-
 
