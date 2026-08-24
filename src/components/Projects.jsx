@@ -191,9 +191,16 @@ function Projects({ preview = false }) {
     activeFilter === "ALL"
       ? shownProjects
       : shownProjects.filter((project) => project.status === activeFilter)
-  const sectionSpacing = preview
-    ? "min-h-screen snap-start pt-20 pb-8 flex items-center"
-    : "pt-32 pb-24"
+  const groupedProjects = filteredProjects.reduce((groups, project, index) => {
+    if (index % 2 === 0) {
+      groups.push([project])
+    } else {
+      groups[groups.length - 1].push(project)
+    }
+
+    return groups
+  }, [])
+  const sectionSpacing = "min-h-screen snap-start pt-20 pb-8 flex items-center"
   const projectGridSpacing = preview ? "mt-8" : "mt-12"
 
   useEffect(() => {
@@ -205,7 +212,7 @@ function Projects({ preview = false }) {
     const featuredProjectIds = featuredProjects.map((project) => project.id)
     const targetId = featuredProjectIds.includes(projectId)
       ? `featured-${projectId}`
-      : projectId
+      : `project-${projectId}`
 
     setExpandedProject(targetId)
 
@@ -217,16 +224,15 @@ function Projects({ preview = false }) {
     })
   }, [location.hash, preview])
 
-  return (
+  if (preview) {
+    return (
     <section className={`bg-black text-white ${sectionSpacing} px-8`}>
       <div className="max-w-6xl mx-auto">
         <p className="text-gray-600 tracking-[0.4em] text-sm">
-          {preview ? "SELECTED_WORK" : "PROJECT_LEDGER"}
+          SELECTED_WORK
         </p>
 
-        <h2 className="text-4xl font-bold mt-4">
-          {preview ? "Selected Work" : "Project Ledger"}
-        </h2>
+        <h2 className="text-4xl font-bold mt-4">Selected Work</h2>
 
         <div className="w-20 h-px bg-cyan-400 mt-6"></div>
 
@@ -235,8 +241,6 @@ function Projects({ preview = false }) {
           software, and AI-assisted development workflows.
         </p>
 
-        {preview ? (
-          <>
             <div className={`grid md:grid-cols-3 gap-5 ${projectGridSpacing}`}>
               {shownProjects.map((project) => (
                 <Link
@@ -268,10 +272,29 @@ function Projects({ preview = false }) {
               </Link>
             </div>
 
-          </>
-        ) : (
-          <>
-            <div id="featured" className="grid md:grid-cols-3 gap-5 mt-12">
+      </div>
+    </section>
+    )
+  }
+
+  return (
+    <div className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth bg-black text-white">
+      <section className="min-h-screen snap-start bg-black px-8 pt-32 pb-16 flex items-center">
+        <div className="max-w-6xl mx-auto w-full">
+          <p className="text-gray-600 tracking-[0.4em] text-sm">
+            PROJECT_LEDGER
+          </p>
+
+          <h2 className="text-4xl font-bold mt-4">Project Ledger</h2>
+
+          <div className="w-20 h-px bg-cyan-400 mt-6"></div>
+
+          <p className="text-gray-400 mt-4 max-w-2xl leading-relaxed">
+            Engineering projects spanning embedded systems, digital design,
+            software, and AI-assisted development workflows.
+          </p>
+
+          <div id="featured" className="grid md:grid-cols-3 gap-5 mt-12">
               {featuredProjects.map((project) => (
                 <ProjectCard
                   key={project.id}
@@ -288,21 +311,37 @@ function Projects({ preview = false }) {
                 />
               ))}
             </div>
+        </div>
+      </section>
 
-            <div className="border-t border-zinc-800 mt-16 pt-12">
-              <p className="text-gray-600 tracking-[0.4em] text-sm">
-                ALL_PROJECTS
-              </p>
+      {groupedProjects.map((projectGroup) => {
+        const hasExpandedProject = projectGroup.some(
+          (project) => expandedProject === `project-${project.id}`,
+        )
 
-              <div className="w-20 h-px bg-cyan-400 mt-6"></div>
+        return (
+        <section
+          key={projectGroup.map((project) => project.id).join("-")}
+          id={`project-${projectGroup[0].id}`}
+          className={`snap-start bg-black px-8 pt-28 flex items-center overflow-y-auto ${
+            hasExpandedProject ? "min-h-screen pb-80" : "min-h-screen pb-40"
+          }`}
+        >
+          <div className="max-w-6xl mx-auto w-full">
+            <p className="text-gray-600 tracking-[0.4em] text-sm">
+              ALL_PROJECTS
+            </p>
 
-              <p className="text-gray-400 mt-4 max-w-2xl leading-relaxed">
+            <div className="w-20 h-px bg-cyan-400 mt-6"></div>
+
+            <div className="flex flex-col gap-5 mt-4 lg:flex-row lg:items-end lg:justify-between">
+              <p className="text-gray-400 max-w-2xl leading-relaxed">
                 A complete archive of active, completed, and planned builds
                 across software, embedded systems, game development, and
                 interactive design.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-3 mt-8">
+              <div className="flex flex-wrap gap-3">
                 {projectFilters.map((filter) => {
                   const isActive = activeFilter === filter.value
                   const statusClass =
@@ -329,9 +368,10 @@ function Projects({ preview = false }) {
                   )
                 })}
               </div>
+            </div>
 
-              <div className="grid md:grid-cols-2 gap-5 mt-8">
-                {filteredProjects.map((project) => (
+            <div className="grid lg:grid-cols-2 gap-5 mt-8">
+              {projectGroup.map((project) => (
                   <ProjectCard
                     key={project.id}
                     project={project}
@@ -345,13 +385,13 @@ function Projects({ preview = false }) {
                       )
                     }
                   />
-                ))}
-              </div>
+              ))}
             </div>
-          </>
-        )}
-      </div>
-    </section>
+          </div>
+        </section>
+        )
+      })}
+    </div>
   )
 }
 
