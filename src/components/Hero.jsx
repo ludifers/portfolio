@@ -33,11 +33,11 @@ function Hero() {
           </button>
         </Link>
 
-        <a href="/shay-akbari-resume.pdf" download>
+        <Link to="/contact#resume-download">
           <button className="w-full px-6 py-3 border border-cyan-800 bg-cyan-950/40 hover:border-cyan-400 text-cyan-300 hover:text-white rounded-xl transition duration-300 cursor-pointer sm:w-auto">
             VIEW_RESUME
           </button>
-        </a>
+        </Link>
 
         <Link to="/contact">
           <button className="w-full px-6 py-3 border border-zinc-700 bg-zinc-900 hover:border-cyan-400 hover:bg-zinc-800 text-gray-200 hover:text-cyan-300 rounded-xl transition duration-300 cursor-pointer sm:w-auto">

@@ -36,8 +36,9 @@ function Contact() {
   }
 
   return (
-    <section className="min-h-screen bg-black text-white px-5 py-32 sm:px-9 sm:py-50">
-      <div className="max-w-6xl mx-auto">
+    <div className="terminal-scrollbar h-screen overflow-y-auto snap-y snap-proximity scroll-smooth bg-black text-white md:snap-mandatory">
+    <section className="min-h-screen snap-start bg-black px-5 pt-32 pb-16 flex items-center sm:px-9 sm:pt-40 sm:pb-24">
+      <div className="max-w-6xl mx-auto w-full">
         <div>
           <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm">
             TERMINAL // CONTACT
@@ -53,7 +54,8 @@ function Contact() {
           <div className="w-20 h-px bg-cyan-400 mt-6"></div>
         </div>
 
-        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 mt-12 sm:p-8 sm:mt-20">
+        <div className="grid gap-5 mt-10 lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 sm:p-8">
           <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm mb-8">
             SYSTEM_STATUS // REPORT
           </p>
@@ -105,7 +107,8 @@ function Contact() {
           </div>
         </div>
 
-        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 mt-8 sm:p-8">
+        <div>
+        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 sm:p-8">
           <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm mb-8">
             CONNECT // LINKS
           </p>
@@ -143,16 +146,23 @@ function Contact() {
         </div>
 
         <a
+          id="resume-download"
           href="/shay-akbari-resume.pdf"
           download
-          className="block bg-zinc-950 border border-cyan-700 rounded-2xl p-4 mt-16 hover:border-cyan-500 transition duration-300"
+          className="block bg-zinc-950 border border-cyan-700 rounded-2xl p-4 mt-5 hover:border-cyan-500 transition duration-300"
         >
           <span className="block w-full text-center text-gray-400 hover:text-cyan-400 transition">
             DOWNLOAD_RESUME.PDF
           </span>
         </a>
+        </div>
+        </div>
+      </div>
+    </section>
 
-        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 mt-12 sm:p-8 sm:mt-16">
+    <section className="min-h-screen snap-start bg-black px-5 pt-28 pb-20 flex items-center sm:px-9">
+      <div className="max-w-6xl mx-auto w-full">
+        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 sm:p-8">
           <div className="flex items-center gap-2 mb-8 border-b border-zinc-800 pb-4">
             <div className=" w-3 h-3 rounded-full bg-red-500"></div>
             <div className=" w-3 h-3 rounded-full bg-yellow-500"></div>
@@ -249,6 +259,7 @@ function Contact() {
         </div>
       </div>
     </section>
+    </div>
   );
 }
 

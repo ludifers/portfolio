@@ -21,11 +21,21 @@ function Homepage() {
 }
 
 function ScrollToTop() {
-  const { pathname } = useLocation()
+  const { hash, pathname } = useLocation()
 
   useEffect(() => {
+    if (hash) {
+      window.requestAnimationFrame(() => {
+        document.querySelector(hash)?.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        })
+      })
+      return
+    }
+
     window.scrollTo(0, 0)
-  }, [pathname])
+  }, [hash, pathname])
 
   return null
 }
