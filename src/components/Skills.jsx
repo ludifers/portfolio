@@ -28,13 +28,13 @@ const skillGroups = [
 
 function Skills() {
   return (
-    <section className="min-h-screen snap-start bg-black text-white px-8 pt-28 pb-16 flex items-center">
+    <section className="min-h-screen snap-start bg-black text-white px-5 pt-28 pb-12 flex items-center sm:px-8 sm:pb-16">
       <div className="w-full max-w-6xl mx-auto">
-        <p className="text-gray-600 tracking-[0.4em] text-sm">
+        <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm">
           SYSTEM_CAPABILITIES
         </p>
 
-        <h2 className="text-4xl font-bold mt-4">Skills</h2>
+        <h2 className="text-3xl font-bold mt-4 sm:text-4xl">Skills</h2>
 
         <div className="w-20 h-px bg-cyan-400 mt-6"></div>
 
@@ -43,7 +43,7 @@ function Skills() {
           workflows.
         </p>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-5 gap-4 mt-10">
+        <div className="grid gap-4 mt-8 sm:mt-10 md:grid-cols-2 xl:grid-cols-5">
           {skillGroups.map((group) => (
             <div
               key={group.title}

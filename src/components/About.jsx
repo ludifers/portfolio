@@ -1,17 +1,17 @@
 function About() {
   return (
-    <section className="min-h-screen snap-start bg-black text-white px-8 pt-28 pb-16 flex items-center">
+    <section className="min-h-screen snap-start bg-black text-white px-5 pt-28 pb-12 flex items-center sm:px-8 sm:pb-16">
       <div className="w-full max-w-6xl mx-auto">
-        <p className="text-gray-600 tracking-[0.4em] text-sm">
+        <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm">
           OPERATOR_PROFILE
         </p>
 
-        <h2 className="text-4xl font-bold mt-4">About Me</h2>
+        <h2 className="text-3xl font-bold mt-4 sm:text-4xl">About Me</h2>
 
         <div className="w-20 h-px bg-cyan-400 mt-6"></div>
 
         <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl px-5 py-8 sm:px-8 mt-10 text-center">
-          <p className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+          <p className="text-gray-300 text-base leading-relaxed max-w-3xl mx-auto sm:text-lg">
             I am a Computer Engineering senior at the University of Central
             Florida, focused on building at the intersection of hardware and
             software. I enjoy working close to the system, whether that means

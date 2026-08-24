@@ -21,6 +21,7 @@ function Navbar() {
   const linkRefs = useRef({})
   const [indicator, setIndicator] = useState({ left: 0, width: 0 })
   const [available, setAvailable] = useState(isWorkHours)
+  const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const activePath = pathname === "/" ? "/" : `/${pathname.split("/")[1]}`
@@ -43,7 +44,8 @@ function Navbar() {
   }, [])
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-black border-b border-zinc-800 px-8 py-5 text-white flex justify-between items-center">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black border-b border-zinc-800 px-5 py-4 text-white md:px-8 md:py-5">
+      <div className="flex items-center justify-between">
       <NavLink
         to="/"
         className="group flex items-center gap-2 font-bold text-gray-400 transition-colors duration-300 hover:text-cyan-400"
@@ -56,7 +58,7 @@ function Navbar() {
         <span className="tracking-[0.28em] text-sm">NOVABLOOMA</span>
       </NavLink>
 
-      <div className="flex gap-10 relative">
+      <div className="relative hidden gap-10 md:flex">
         {navItems.map((item) => (
           <NavLink
             key={item.path}
@@ -82,7 +84,7 @@ function Navbar() {
         />
       </div>
 
-      <div className="text-gray-500">
+      <div className="hidden text-gray-500 md:block">
         <span
           className={`inline-block h-2 w-2 rounded-full align-middle ${
             available ? "bg-green-500" : "bg-red-500"
@@ -90,6 +92,50 @@ function Navbar() {
         ></span>{" "}
         ONLINE
       </div>
+
+      <button
+        type="button"
+        aria-label="Toggle navigation menu"
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((open) => !open)}
+        className="grid h-10 w-10 place-items-center rounded-lg border border-zinc-800 bg-zinc-950 text-cyan-400 transition hover:border-cyan-700 md:hidden"
+      >
+        <span className="text-xl leading-none">{menuOpen ? "x" : "+"}</span>
+      </button>
+      </div>
+
+      {menuOpen && (
+        <div className="mt-4 border-t border-zinc-800 pt-4 md:hidden">
+          <div className="grid gap-2">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.path}
+                to={item.path}
+                end={item.path === "/"}
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `rounded-lg border px-4 py-3 text-sm font-semibold tracking-[0.18em] transition ${
+                    isActive
+                      ? "border-cyan-800 bg-cyan-950/40 text-cyan-300"
+                      : "border-zinc-800 bg-zinc-950 text-gray-400"
+                  }`
+                }
+              >
+                {item.label}
+              </NavLink>
+            ))}
+          </div>
+
+          <div className="mt-4 text-sm text-gray-500">
+            <span
+              className={`inline-block h-2 w-2 rounded-full align-middle ${
+                available ? "bg-green-500" : "bg-red-500"
+              }`}
+            ></span>{" "}
+            ONLINE
+          </div>
+        </div>
+      )}
     </nav>
   )
 }

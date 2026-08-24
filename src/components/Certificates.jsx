@@ -13,13 +13,13 @@ const certificates = [
 
 function Certificates() {
   return (
-    <section className="min-h-screen snap-start bg-black text-white px-8 pt-28 pb-16 flex items-center">
+    <section className="min-h-screen snap-start bg-black text-white px-5 pt-28 pb-12 flex items-center sm:px-8 sm:pb-16">
       <div className="w-full max-w-6xl mx-auto">
-        <p className="text-gray-600 tracking-[0.4em] text-sm">
+        <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm">
           ACADEMIC_CREDENTIALS
         </p>
 
-        <h2 className="text-4xl font-bold mt-4">Certificates</h2>
+        <h2 className="text-3xl font-bold mt-4 sm:text-4xl">Certificates</h2>
 
         <div className="w-20 h-px bg-cyan-400 mt-6"></div>
 
@@ -43,7 +43,7 @@ function Certificates() {
                 <img
                   src={certificate.image}
                   alt={`${certificate.title} certificate`}
-                  className="h-64 w-full object-cover object-top border-b border-zinc-800"
+                  className="h-48 w-full object-cover object-top border-b border-zinc-800 sm:h-64"
                 />
               </a>
 

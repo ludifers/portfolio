@@ -36,14 +36,14 @@ function Contact() {
   }
 
   return (
-    <section className="min-h-screen bg-black text-white px-9 py-50">
+    <section className="min-h-screen bg-black text-white px-5 py-32 sm:px-9 sm:py-50">
       <div className="max-w-6xl mx-auto">
         <div>
-          <p className="text-gray-600 tracking-[0.4em] text-sm">
+          <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm">
             TERMINAL // CONTACT
           </p>
 
-          <h1 className="text-5xl font-bold mt-6">Get In Touch</h1>
+          <h1 className="text-4xl font-bold mt-6 sm:text-5xl">Get In Touch</h1>
 
           <p className="text-gray-400 mt-4 max-w-2xl leading-relaxed">
             Currently seeking job opportunities in embedded systems, FPGA
@@ -53,27 +53,27 @@ function Contact() {
           <div className="w-20 h-px bg-cyan-400 mt-6"></div>
         </div>
 
-        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-8 mt-20">
-          <p className="text-gray-600 tracking-[0.4em] text-sm mb-8">
+        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 mt-12 sm:p-8 sm:mt-20">
+          <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm mb-8">
             SYSTEM_STATUS // REPORT
           </p>
 
           <div className="space-y-2">
-            <div className="flex justify-between border-b border-zinc-800 py-4">
+            <div className="flex flex-col gap-1 border-b border-zinc-800 py-4 sm:flex-row sm:justify-between">
               <span className="text-gray-500 text-sm font-semibold">
                 OPERATOR
               </span>
               <span className="font-semibold">Shay Akbari</span>
             </div>
 
-            <div className="flex justify-between border-b border-zinc-800 py-4">
+            <div className="flex flex-col gap-1 border-b border-zinc-800 py-4 sm:flex-row sm:justify-between">
               <span className="text-gray-500 text-sm font-semibold">
                 PROGRAM
               </span>
               <span className="font-semibold">Computer Engineering</span>
             </div>
 
-            <div className="flex justify-between border-b border-zinc-800 py-4">
+            <div className="flex flex-col gap-1 border-b border-zinc-800 py-4 sm:flex-row sm:justify-between">
               <span className="text-gray-500 text-sm font-semibold">
                 INSTITUTION
               </span>
@@ -82,21 +82,21 @@ function Contact() {
               </span>
             </div>
 
-            <div className="flex justify-between border-b border-zinc-800 py-4">
+            <div className="flex flex-col gap-1 border-b border-zinc-800 py-4 sm:flex-row sm:justify-between">
               <span className="text-gray-500 text-sm font-semibold">
                 GRADUATION
               </span>
               <span className="font-semibold">December 2026</span>
             </div>
 
-            <div className="flex justify-between border-b border-zinc-800 py-4">
+            <div className="flex flex-col gap-1 border-b border-zinc-800 py-4 sm:flex-row sm:justify-between">
               <span className="text-gray-500 text-sm font-semibold">
                 STATUS
               </span>
               <span className="font-semibold">SEEKING JOB</span>
             </div>
 
-            <div className="flex justify-between py-4">
+            <div className="flex flex-col gap-1 py-4 sm:flex-row sm:justify-between">
               <span className="text-gray-500 text-sm font-semibold">
                 AVAILABILITY
               </span>
@@ -105,13 +105,13 @@ function Contact() {
           </div>
         </div>
 
-        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-8 mt-8">
-          <p className="text-gray-600 tracking-[0.4em] text-sm mb-8">
+        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 mt-8 sm:p-8">
+          <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm mb-8">
             CONNECT // LINKS
           </p>
 
           <div className="space-y-6">
-            <div className="flex justify-between border-b border-zinc-800 py-4">
+            <div className="flex flex-col gap-1 border-b border-zinc-800 py-4 sm:flex-row sm:justify-between">
               <a
                 href="mailto:shaya.brz@gmail.com"
                 className="text-gray-400 hover:text-cyan-500 cursor-pointer"
@@ -120,7 +120,7 @@ function Contact() {
               </a>
             </div>
 
-            <div className="flex justify-between border-b border-zinc-800 py-4">
+            <div className="flex flex-col gap-1 border-b border-zinc-800 py-4 sm:flex-row sm:justify-between">
               <a
                 href="https://github.com/ludifers"
                 target="_blank"
@@ -152,12 +152,12 @@ function Contact() {
           </span>
         </a>
 
-        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-8 mt-16">
+        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 mt-12 sm:p-8 sm:mt-16">
           <div className="flex items-center gap-2 mb-8 border-b border-zinc-800 pb-4">
             <div className=" w-3 h-3 rounded-full bg-red-500"></div>
             <div className=" w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className=" w-3 h-3 rounded-full bg-green-500"></div>
-            <p className="text-gray-500 text-sm ml-3">
+            <p className="text-gray-500 text-xs ml-2 break-all sm:text-sm sm:ml-3">
               guest@portfolio:~$ send-message
             </p>
           </div>
@@ -228,7 +228,7 @@ function Contact() {
               type="button"
               onClick={handleSubmit}
               disabled={formStatus === "sending"}
-              className="px-6 py-3 bg-cyan-400 text-black rounded-xl font-semibold hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70 transition"
+              className="w-full px-6 py-3 bg-cyan-400 sm:w-auto text-black rounded-xl font-semibold hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-70 transition"
             >
               {formStatus === "sending" ? "SENDING..." : "SEND_MESSAGE"}
             </button>

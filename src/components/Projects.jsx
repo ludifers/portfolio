@@ -62,13 +62,13 @@ function ProjectCard({
         />
       )}
 
-      <div className="p-6">
-        <div className="flex items-start justify-between gap-4 border-b border-zinc-800 pb-4">
+      <div className="p-5 sm:p-6">
+        <div className="flex flex-col gap-4 border-b border-zinc-800 pb-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
-          <p className="text-cyan-400 tracking-[0.2em] text-xs font-semibold">
+          <p className="text-cyan-400 tracking-[0.16em] text-xs font-semibold sm:tracking-[0.2em]">
             {project.category}
           </p>
-          <h3 className="text-2xl font-semibold mt-3">
+          <h3 className="text-xl font-semibold mt-3 sm:text-2xl">
             {project.links?.github ? (
               <a
                 href={project.links.github}
@@ -89,7 +89,7 @@ function ProjectCard({
         </div>
 
         <span
-          className={`text-xs border rounded-lg px-3 py-2 ${
+          className={`w-fit text-xs border rounded-lg px-3 py-2 ${
             statusStyles[project.status] ||
             "border-zinc-800 bg-zinc-900 text-gray-500"
           }`}
@@ -238,9 +238,8 @@ function Projects({ preview = false }) {
       ? `featured-${projectId}`
       : `project-${projectId}`
 
-    setExpandedProject(targetId)
-
     window.requestAnimationFrame(() => {
+      setExpandedProject(targetId)
       document.getElementById(targetId)?.scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -250,13 +249,13 @@ function Projects({ preview = false }) {
 
   if (preview) {
     return (
-    <section className={`bg-black text-white ${sectionSpacing} px-8`}>
+    <section className={`bg-black text-white ${sectionSpacing} px-5 sm:px-8`}>
       <div className="max-w-6xl mx-auto">
-        <p className="text-gray-600 tracking-[0.4em] text-sm">
+        <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm">
           SELECTED_WORK
         </p>
 
-        <h2 className="text-4xl font-bold mt-4">Selected Work</h2>
+        <h2 className="text-3xl font-bold mt-4 sm:text-4xl">Selected Work</h2>
 
         <div className="w-20 h-px bg-cyan-400 mt-6"></div>
 
@@ -265,7 +264,7 @@ function Projects({ preview = false }) {
           software, and AI-assisted development workflows.
         </p>
 
-            <div className={`grid md:grid-cols-3 gap-5 ${projectGridSpacing}`}>
+            <div className={`grid gap-5 ${projectGridSpacing} md:grid-cols-3`}>
               {shownProjects.map((project) => (
                 <Link
                   key={project.id}
@@ -302,14 +301,14 @@ function Projects({ preview = false }) {
   }
 
   return (
-    <div className="terminal-scrollbar h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth bg-black text-white">
-      <section className="min-h-screen snap-start bg-black px-8 pt-32 pb-16 flex items-center">
+    <div className="terminal-scrollbar h-screen overflow-y-auto snap-y snap-proximity scroll-smooth bg-black text-white md:snap-mandatory">
+      <section className="min-h-screen snap-start bg-black px-5 pt-28 pb-12 flex items-center sm:px-8 sm:pt-32 sm:pb-16">
         <div className="max-w-6xl mx-auto w-full">
-          <p className="text-gray-600 tracking-[0.4em] text-sm">
+          <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm">
             PROJECT_LEDGER
           </p>
 
-          <h2 className="text-4xl font-bold mt-4">Project Ledger</h2>
+          <h2 className="text-3xl font-bold mt-4 sm:text-4xl">Project Ledger</h2>
 
           <div className="w-20 h-px bg-cyan-400 mt-6"></div>
 
@@ -318,7 +317,7 @@ function Projects({ preview = false }) {
             software, and AI-assisted development workflows.
           </p>
 
-          <div id="featured" className="grid md:grid-cols-3 gap-5 mt-12">
+          <div id="featured" className="grid gap-5 mt-8 md:grid-cols-3 md:mt-12">
               {featuredProjects.map((project) => (
                 <ProjectCard
                   key={project.id}
@@ -347,12 +346,12 @@ function Projects({ preview = false }) {
         <section
           key={projectGroup.map((project) => project.id).join("-")}
           id={`project-${projectGroup[0].id}`}
-          className={`terminal-scrollbar snap-start bg-black px-8 pt-28 flex items-center overflow-y-auto ${
-            hasExpandedProject ? "min-h-screen pb-80" : "min-h-screen pb-40"
+          className={`terminal-scrollbar snap-start bg-black px-5 pt-28 flex items-center overflow-y-auto sm:px-8 ${
+            hasExpandedProject ? "min-h-screen pb-64 sm:pb-80" : "min-h-screen pb-28 sm:pb-40"
           }`}
         >
           <div className="max-w-6xl mx-auto w-full">
-            <p className="text-gray-600 tracking-[0.4em] text-sm">
+            <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm">
               ALL_PROJECTS
             </p>
 
