@@ -250,6 +250,24 @@ function Projects({ preview = false }) {
               ))}
             </div>
 
+            <div className="mt-6 border border-cyan-900/60 bg-zinc-950 rounded-2xl p-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-cyan-400 tracking-[0.2em] text-xs font-semibold">
+                  NEXT_SIGNAL
+                </p>
+                <p className="text-gray-300 mt-2">
+                  Interested in building something together?
+                </p>
+              </div>
+
+              <Link
+                to="/contact"
+                className="inline-flex justify-center border border-cyan-800 bg-cyan-950/40 text-cyan-300 rounded-lg px-4 py-2 text-sm hover:border-cyan-400 hover:text-white transition"
+              >
+                View Terminal
+              </Link>
+            </div>
+
           </>
         ) : (
           <>
