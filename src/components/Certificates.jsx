@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const certificates = [
   {
     title: "AI for Game Programming Course - Best in Show",
@@ -66,14 +68,23 @@ function Certificates() {
                 {certificate.summary}
               </p>
 
-              <a
-                href={certificate.image}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex mt-6 border border-cyan-800 bg-cyan-950/40 text-cyan-300 rounded-lg px-4 py-2 text-sm hover:border-cyan-400 hover:text-white transition"
-              >
-                View Certificate
-              </a>
+              <div className="flex flex-wrap gap-3 mt-6">
+                <a
+                  href={certificate.image}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex border border-cyan-800 bg-cyan-950/40 text-cyan-300 rounded-lg px-4 py-2 text-sm hover:border-cyan-400 hover:text-white transition"
+                >
+                  View Certificate
+                </a>
+
+                <Link
+                  to="/projects#featured-deadmans-tale"
+                  className="inline-flex border border-zinc-800 bg-zinc-900 text-gray-300 rounded-lg px-4 py-2 text-sm hover:border-cyan-800 hover:text-cyan-400 transition"
+                >
+                  View Dead Man's Tale
+                </Link>
+              </div>
               </div>
             </article>
           ))}

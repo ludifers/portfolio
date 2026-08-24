@@ -44,9 +44,16 @@ function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black border-b border-zinc-800 px-8 py-5 text-white flex justify-between items-center">
-      <NavLink to="/" className="text-gray-400 font-bold">
-        <span className="inline-block h-2 w-2 rounded-full bg-cyan-400 align-middle"></span>{" "}
-        SYSTEM_OVERVIEW
+      <NavLink
+        to="/"
+        className="group flex items-center gap-2 font-bold text-gray-400 transition-colors duration-300 hover:text-cyan-400"
+      >
+        <img
+          src="/brand/novablooma-flower-sprite.png"
+          alt="Novablooma flower logo"
+          className="h-8 w-8 object-contain transition duration-300 group-hover:scale-110"
+        />
+        <span className="tracking-[0.28em] text-sm">NOVABLOOMA</span>
       </NavLink>
 
       <div className="flex gap-10 relative">

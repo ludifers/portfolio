@@ -8,6 +8,7 @@ export const projects = [
     showcaseOrder: 1,
     summary:
       "A pirate adventure game developed in Unity with exploration, combat, progression, multiplayer systems, and a custom user interface.",
+    image: "/projects/deadmans-tale.png",
     details:
       "A completed Unity game project focused on creating a clear player experience across objectives, progression, feedback, and interface systems.",
     problem:
@@ -82,6 +83,7 @@ export const projects = [
     showcaseOrder: 2,
     summary:
       "A completed restaurant discovery app prototype built to explore how users could find food by budget, distance, cravings, and vibe.",
+    image: "/projects/food-finder.png",
     details:
       "Built as a front-end skeleton and product-flow prototype rather than a deployed website, with the code available on GitHub.",
     problem:
@@ -228,6 +230,7 @@ export const projects = [
     showcaseOrder: 3,
     summary:
       "A smart wheelchair prototype that combines computer vision, environmental sensing, and embedded control to improve navigation and obstacle awareness.",
+    image: "/projects/navi-smart-wheelchair.png",
     details:
       "An assistive technology project combining Raspberry Pi processing, ESP32 control, computer vision, and multiple sensing systems.",
     problem:

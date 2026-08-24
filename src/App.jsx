@@ -10,7 +10,7 @@ import Contact from "./components/Contact"
 
 function Homepage() {
   return (
-    <div className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
+    <div className="terminal-scrollbar h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth">
       <Hero />
       <About />
       <Skills />

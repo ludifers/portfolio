@@ -22,6 +22,7 @@ function ProjectCard({
   expanded = false,
   onToggle,
   domId,
+  showImage = true,
 }) {
   const hasDemoLink = Boolean(project.links?.demo)
 
@@ -30,7 +31,30 @@ function ProjectCard({
       id={domId}
       className="overflow-hidden bg-zinc-950 border border-cyan-900/60 rounded-2xl hover:border-cyan-500 transition duration-300"
     >
-      {project.image && (
+      {showImage && project.image && project.imageFit === "contain" && (
+        <div className="h-56 w-full border-b border-zinc-800 bg-zinc-900 flex justify-center overflow-hidden">
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="h-full w-auto max-w-[78%] object-contain"
+          />
+        </div>
+      )}
+
+      {showImage && project.image && project.imageFit === "soft-cover" && (
+        <div className="h-40 w-full border-b border-zinc-800 bg-zinc-900 p-2 overflow-hidden">
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="h-full w-full object-cover object-center"
+          />
+        </div>
+      )}
+
+      {showImage &&
+        project.image &&
+        project.imageFit !== "contain" &&
+        project.imageFit !== "soft-cover" && (
         <img
           src={project.image}
           alt={`${project.title} preview`}
@@ -278,7 +302,7 @@ function Projects({ preview = false }) {
   }
 
   return (
-    <div className="h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth bg-black text-white">
+    <div className="terminal-scrollbar h-screen overflow-y-auto snap-y snap-mandatory scroll-smooth bg-black text-white">
       <section className="min-h-screen snap-start bg-black px-8 pt-32 pb-16 flex items-center">
         <div className="max-w-6xl mx-auto w-full">
           <p className="text-gray-600 tracking-[0.4em] text-sm">
@@ -323,7 +347,7 @@ function Projects({ preview = false }) {
         <section
           key={projectGroup.map((project) => project.id).join("-")}
           id={`project-${projectGroup[0].id}`}
-          className={`snap-start bg-black px-8 pt-28 flex items-center overflow-y-auto ${
+          className={`terminal-scrollbar snap-start bg-black px-8 pt-28 flex items-center overflow-y-auto ${
             hasExpandedProject ? "min-h-screen pb-80" : "min-h-screen pb-40"
           }`}
         >
@@ -376,6 +400,7 @@ function Projects({ preview = false }) {
                     key={project.id}
                     project={project}
                     domId={`project-${project.id}`}
+                    showImage={false}
                     expanded={expandedProject === `project-${project.id}`}
                     onToggle={() =>
                       setExpandedProject((currentProject) =>
