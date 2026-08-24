@@ -38,18 +38,20 @@ function Contact() {
   return (
     <section className="min-h-screen bg-black text-white px-9 py-50">
       <div className="max-w-6xl mx-auto">
-        <p className="text-gray-600 tracking-[0.4em] text-sm">
-          TERMINAL // CONTACT
-        </p>
+        <div>
+          <p className="text-gray-600 tracking-[0.4em] text-sm">
+            TERMINAL // CONTACT
+          </p>
 
-        <h1 className="text-5xl font-bold mt-6">Get In Touch</h1>
+          <h1 className="text-5xl font-bold mt-6">Get In Touch</h1>
 
-        <p className="text-gray-400 mt-4 max-w-2xl leading-relaxed">
-          Currently seeking job opportunities in embedded systems, FPGA design,
-          and computer architecture.
-        </p>
+          <p className="text-gray-400 mt-4 max-w-2xl leading-relaxed">
+            Currently seeking job opportunities in embedded systems, FPGA
+            design, and computer architecture.
+          </p>
 
-        <div className="w-20 h-px bg-cyan-400 mt-6"></div>
+          <div className="w-20 h-px bg-cyan-400 mt-6"></div>
+        </div>
 
         <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-8 mt-20">
           <p className="text-gray-600 tracking-[0.4em] text-sm mb-8">

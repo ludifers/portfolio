@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react"
-import { NavLink, useLocation } from "react-router-dom"
 import { motion } from "framer-motion"
+import { NavLink, useLocation } from "react-router-dom"
 
 const navItems = [
   { label: "SYSTEM_OVERVIEW", path: "/" },
@@ -8,10 +8,19 @@ const navItems = [
   { label: "TERMINAL", path: "/contact" },
 ]
 
+function isWorkHours() {
+  const now = new Date()
+  const day = now.getDay()
+  const hour = now.getHours()
+
+  return day >= 1 && day <= 5 && hour >= 9 && hour < 17
+}
+
 function Navbar() {
   const { pathname } = useLocation()
   const linkRefs = useRef({})
   const [indicator, setIndicator] = useState({ left: 0, width: 0 })
+  const [available, setAvailable] = useState(isWorkHours)
 
   useEffect(() => {
     const activePath = pathname === "/" ? "/" : `/${pathname.split("/")[1]}`
@@ -25,10 +34,19 @@ function Navbar() {
     }
   }, [pathname])
 
+  useEffect(() => {
+    const statusTimer = window.setInterval(() => {
+      setAvailable(isWorkHours())
+    }, 60000)
+
+    return () => window.clearInterval(statusTimer)
+  }, [])
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-black border-b border-zinc-800 px-8 py-5 text-white flex justify-between items-center">
       <NavLink to="/" className="text-gray-400 font-bold">
-        ● SYSTEM_OVERVIEW
+        <span className="inline-block h-2 w-2 rounded-full bg-cyan-400 align-middle"></span>{" "}
+        SYSTEM_OVERVIEW
       </NavLink>
 
       <div className="flex gap-10 relative">
@@ -57,7 +75,14 @@ function Navbar() {
         />
       </div>
 
-      <div className="text-gray-500">● ONLINE</div>
+      <div className="text-gray-500">
+        <span
+          className={`inline-block h-2 w-2 rounded-full align-middle ${
+            available ? "bg-green-500" : "bg-red-500"
+          }`}
+        ></span>{" "}
+        ONLINE
+      </div>
     </nav>
   )
 }

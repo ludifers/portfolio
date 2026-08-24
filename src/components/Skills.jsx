@@ -29,14 +29,16 @@ const skillGroups = [
 function Skills() {
   return (
     <section className="min-h-screen snap-start bg-black text-white px-8 pt-28 pb-16 flex items-center">
-      <div className="max-w-6xl mx-auto">
-        <p className="text-gray-600 tracking-[0.4em] text-sm text-center">
+      <div className="w-full max-w-6xl mx-auto">
+        <p className="text-gray-600 tracking-[0.4em] text-sm">
           SYSTEM_CAPABILITIES
         </p>
 
-        <h2 className="text-4xl font-bold text-center mt-4">Skills</h2>
+        <h2 className="text-4xl font-bold mt-4">Skills</h2>
 
-        <p className="text-gray-400 text-center mt-4 max-w-2xl mx-auto leading-relaxed">
+        <div className="w-20 h-px bg-cyan-400 mt-6"></div>
+
+        <p className="text-gray-400 mt-4 max-w-2xl leading-relaxed">
           Systems-level proficiency across software, hardware, and engineering
           workflows.
         </p>
