@@ -107,6 +107,51 @@ export const projects = [
     },
   },
   {
+    id: "studyrewards",
+    title: "StudyRewards",
+    category: "FULL_STACK_WEB",
+    status: "COMPLETE",
+    featured: false,
+    summary:
+      "A full-stack study platform where users create flashcard sets, take quizzes, earn points, and unlock reward themes while studying.",
+    image: "/projects/studyrewards.png",
+    imageFit: "contain",
+    details:
+      "Built for COP4331 as a team large project with a React/TypeScript frontend, Express API, MongoDB models, authentication flows, rewards logic, and a companion Flutter mobile app.",
+    problem:
+      "Students need a study tool that keeps review organized and gives them extra motivation to come back, practice, and track progress over time.",
+    solution:
+      "Create a learning app that combines study sets, flashcards, quizzes, login and email flows, points, streaks, reward history, and unlockable visual themes in one connected experience.",
+    role:
+      "I contributed to the app's frontend screens, user flow, flashcard and quiz experience, rewards interactions, API integration, and team development process across the web and mobile codebases.",
+    features: [
+      "User login and registration",
+      "Email verification and password reset",
+      "Study set dashboard",
+      "Flashcard review flow",
+      "Quiz generation from cards",
+      "Points and streak rewards",
+      "Unlockable theme store",
+      "Reward history",
+      "Express API routes",
+      "MongoDB data models",
+      "Flutter mobile companion app",
+    ],
+    stack: [
+      "React",
+      "TypeScript",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "Flutter",
+      "Vite",
+    ],
+    links: {
+      github: "https://github.com/ludifers/studyrewards",
+      demo: "",
+    },
+  },
+  {
     id: "interactive-architectural-model",
     title: "Interactive Architectural Model",
     category: "INTERACTIVE_ARCHITECTURE",
