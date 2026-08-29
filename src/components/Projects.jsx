@@ -29,7 +29,7 @@ function ProjectCard({
   return (
     <article
       id={domId}
-      className="overflow-hidden bg-zinc-950 border border-cyan-900/60 rounded-2xl hover:border-cyan-500 transition duration-300"
+      className="flex h-full flex-col overflow-hidden bg-zinc-950 border border-cyan-900/60 rounded-2xl hover:border-cyan-500 transition duration-300"
     >
       {showImage && project.image && project.imageFit === "contain" && (
         <div className="h-56 w-full border-b border-zinc-800 bg-zinc-900 flex justify-center overflow-hidden">
@@ -62,7 +62,7 @@ function ProjectCard({
         />
       )}
 
-      <div className="p-5 sm:p-6">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <div className="flex flex-col gap-4 border-b border-zinc-800 pb-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="text-cyan-400 tracking-[0.16em] text-xs font-semibold sm:tracking-[0.2em]">
@@ -163,7 +163,7 @@ function ProjectCard({
         </div>
 
         {!compact && (
-          <div className="flex flex-wrap items-center justify-end gap-3 mt-6">
+          <div className="flex flex-wrap items-center justify-end gap-3 mt-auto pt-6">
             <button
               type="button"
               onClick={onToggle}
