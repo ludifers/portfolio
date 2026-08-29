@@ -123,7 +123,7 @@ export const projects = [
     solution:
       "Create a learning app that combines study sets, flashcards, quizzes, login and email flows, points, streaks, reward history, and unlockable visual themes in one connected experience.",
     role:
-      "I contributed to the app's frontend screens, user flow, flashcard and quiz experience, rewards interactions, API integration, and team development process across the web and mobile codebases.",
+      "I worked on the frontend side of the large project, building user-facing screens, shaping the study flow, and connecting the flashcard, quiz, dashboard, authentication, and rewards interfaces to the rest of the app.",
     features: [
       "User login and registration",
       "Email verification and password reset",
