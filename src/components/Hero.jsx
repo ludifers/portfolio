@@ -39,7 +39,7 @@ function Hero() {
           </button>
         </Link>
 
-        <Link to="/contact">
+        <Link to="/contact#contact-form">
           <button className="w-full px-6 py-3 border border-zinc-700 bg-zinc-900 hover:border-cyan-400 hover:bg-zinc-800 text-gray-200 hover:text-cyan-300 rounded-xl transition duration-300 cursor-pointer sm:w-auto">
             CONTACT_ME
           </button>

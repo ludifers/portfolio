@@ -160,7 +160,10 @@ function Contact() {
       </div>
     </section>
 
-    <section className="min-h-screen snap-start bg-black px-5 pt-28 pb-20 flex items-center sm:px-9">
+    <section
+      id="contact-form"
+      className="min-h-screen snap-start bg-black px-5 pt-28 pb-20 flex items-center sm:px-9"
+    >
       <div className="max-w-6xl mx-auto w-full">
         <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl p-5 sm:p-8">
           <div className="flex items-center gap-2 mb-8 border-b border-zinc-800 pb-4">
