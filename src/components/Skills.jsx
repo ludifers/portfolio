@@ -2,12 +2,12 @@ const skillGroups = [
   {
     title: "PROGRAMMING",
     summary: "Languages used for systems, scripts, and application logic.",
-    skills: ["C", "C++", "Python", "JavaScript"],
+    skills: ["C", "C++", "Python", "JavaScript", "Lua"],
   },
   {
     title: "HARDWARE",
     summary: "Digital design and board-level engineering foundations.",
-    skills: ["Verilog", "FPGA Design", "PCB Design", "Digital Logic"],
+    skills: ["FPGA Design", "PCB Design", "Digital Logic"],
   },
   {
     title: "WEB_SYSTEMS",

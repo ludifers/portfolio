@@ -40,8 +40,37 @@ export const projects = [
       "Level Design",
     ],
     links: {
-      github: "https://github.com/ludifers/deadmans-tale",
+      github: "https://github.com/novablooma/deadmans-tale",
       demo: "",
+    },
+  },
+  {
+    id: "two-trials",
+    title: "Two Trials",
+    category: "GAME_DEVELOPMENT",
+    status: "COMPLETE",
+    featured: false,
+    summary:
+      "A playable Roblox demo experience published as a compact game project for testing mechanics, pacing, and player flow.",
+    details:
+      "A Roblox-hosted demo that can be opened and played directly from the portfolio through the live experience page.",
+    problem:
+      "A demo game needs to communicate its core idea quickly while giving players a clear path into the experience without extra setup.",
+    solution:
+      "Build and publish a focused Roblox experience that lets players enter the demo directly, try the gameplay, and evaluate the project in its playable form.",
+    role:
+      "Designed and built the Roblox demo experience, then published it so it can be shared and tested through Roblox.",
+    features: [
+      "Playable Roblox experience",
+      "Browser-accessible demo page",
+      "Rapid gameplay prototyping",
+      "Player-flow testing",
+      "Published experience link",
+    ],
+    stack: ["Roblox Studio", "Lua", "Game Development", "Level Design"],
+    links: {
+      github: "",
+      demo: "https://www.roblox.com/games/129945563747187/Two-Trials",
     },
   },
   {
@@ -102,7 +131,42 @@ export const projects = [
     ],
     stack: ["React", "JavaScript", "MySQL", "UI Design"],
     links: {
-      github: "https://github.com/ludifers/food-finder",
+      github: "https://github.com/novablooma/food-finder",
+      demo: "",
+    },
+  },
+  {
+    id: "contact-manager",
+    title: "Contact Manager",
+    category: "FULL_STACK_WEB",
+    status: "COMPLETE",
+    featured: false,
+    summary:
+      "A full-stack contact manager where users can register, log in, and manage a personal address book with searchable contact records.",
+    image: "/projects/contact-manager.png",
+    imageFit: "soft-cover",
+    details:
+      "Built for COP4331 as a small team project with static HTML/CSS/JavaScript screens, PHP API endpoints, and a MySQL database.",
+    problem:
+      "Users need a simple way to store, search, update, and remove contact information while keeping each person's contact list tied to their own account.",
+    solution:
+      "Create a web-based contact manager with account registration, login, cookie-based session state, JSON API calls, and CRUD operations backed by MySQL.",
+    role:
+      "Contributed to the frontend and backend integration by working on the user flow, contact-management screens, JavaScript API calls, and PHP endpoint behavior.",
+    features: [
+      "User registration and login",
+      "Password hashing",
+      "Contact search",
+      "Show-all contacts toggle",
+      "Add contact form",
+      "Edit contact workflow",
+      "Delete contact action",
+      "PHP JSON API endpoints",
+      "MySQL-backed data",
+    ],
+    stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    links: {
+      github: "https://github.com/novablooma/contact-manager",
       demo: "",
     },
   },
@@ -147,7 +211,7 @@ export const projects = [
       "Vite",
     ],
     links: {
-      github: "https://github.com/ludifers/studyrewards",
+      github: "https://github.com/novablooma/studyrewards",
       demo: "",
     },
   },

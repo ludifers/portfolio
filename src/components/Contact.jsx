@@ -125,7 +125,7 @@ function Contact() {
 
             <div className="flex flex-col gap-1 border-b border-zinc-800 py-4 sm:flex-row sm:justify-between">
               <a
-                href="https://github.com/ludifers"
+                href="https://github.com/novablooma"
                 target="_blank"
                 rel="noreferrer"
                 className="text-gray-400 hover:text-cyan-500 cursor-pointer"

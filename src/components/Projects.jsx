@@ -25,6 +25,8 @@ function ProjectCard({
   showImage = true,
 }) {
   const hasDemoLink = Boolean(project.links?.demo)
+  const titleLink = project.links?.github || project.links?.demo
+  const titleLinkLabel = project.links?.github ? "GITHUB" : "ROBLOX"
 
   return (
     <article
@@ -69,9 +71,9 @@ function ProjectCard({
             {project.category}
           </p>
           <h3 className="text-xl font-semibold mt-3 sm:text-2xl">
-            {project.links?.github ? (
+            {titleLink ? (
               <a
-                href={project.links.github}
+                href={titleLink}
                 target="_blank"
                 rel="noreferrer"
                 onClick={(event) => event.stopPropagation()}
@@ -79,7 +81,7 @@ function ProjectCard({
               >
                 <span>{project.title}</span>
                 <span className="rounded-full border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-[0.65rem] font-semibold tracking-[0.18em] text-gray-400 transition group-hover:border-cyan-800 group-hover:text-cyan-400">
-                  GITHUB -&gt;
+                  {titleLinkLabel} -&gt;
                 </span>
               </a>
             ) : (
@@ -211,6 +213,13 @@ function Projects({ preview = false }) {
   const [expandedProject, setExpandedProject] = useState("")
   const [activeFilter, setActiveFilter] = useState("ALL")
   const shownProjects = preview ? featuredProjects : projects
+  const filterCounts = shownProjects.reduce(
+    (counts, project) => ({
+      ...counts,
+      [project.status]: (counts[project.status] || 0) + 1,
+    }),
+    { ALL: shownProjects.length },
+  )
   const filteredProjects =
     activeFilter === "ALL"
       ? shownProjects
@@ -357,14 +366,14 @@ function Projects({ preview = false }) {
 
             <div className="w-20 h-px bg-cyan-400 mt-6"></div>
 
-            <div className="flex flex-col gap-5 mt-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="flex flex-col gap-5 mt-4 lg:flex-row lg:items-end lg:gap-8">
               <p className="text-gray-400 max-w-2xl leading-relaxed">
                 A complete archive of active, completed, and planned builds
                 across software, embedded systems, game development, and
                 interactive design.
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap justify-start gap-3 lg:flex-shrink-0">
                 {projectFilters.map((filter) => {
                   const isActive = activeFilter === filter.value
                   const statusClass =
@@ -380,13 +389,16 @@ function Projects({ preview = false }) {
                         setActiveFilter(filter.value)
                         setExpandedProject("")
                       }}
-                      className={`rounded-xl border px-4 py-2 text-sm font-semibold transition ${
+                      className={`inline-flex items-baseline gap-1.5 rounded-xl border px-4 py-2 text-sm font-semibold transition ${
                         isActive
                           ? statusClass
                           : "border-zinc-800 bg-zinc-950 text-gray-500 hover:border-cyan-800 hover:text-cyan-400"
                       }`}
                     >
-                      {filter.label}
+                      <span>{filter.label}</span>
+                      <span className="text-xs opacity-90">
+                        ({filterCounts[filter.value] || 0})
+                      </span>
                     </button>
                   )
                 })}

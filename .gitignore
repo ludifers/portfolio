@@ -24,3 +24,8 @@ dist-ssr
 *.sw?
 
 .vercel
+
+# Local copies used while preparing standalone project repos
+contact-manager/
+contact-manager-ready/
+contact-manager-source/
