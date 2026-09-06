@@ -34,11 +34,11 @@ function ProjectCard({
       className="flex h-full flex-col overflow-hidden bg-zinc-950 border border-cyan-900/60 rounded-2xl hover:border-cyan-500 transition duration-300"
     >
       {showImage && project.image && project.imageFit === "logo" && (
-        <div className="h-40 w-full border-b border-zinc-800 bg-zinc-900 flex items-center justify-center overflow-hidden p-1">
+        <div className="w-full aspect-[226/82] border-b border-zinc-800 bg-white overflow-hidden">
           <img
             src={project.image}
             alt={`${project.title} preview`}
-            className="h-40 w-auto max-w-[104%] object-contain scale-y-[1.08]"
+            className="h-full w-full object-cover"
           />
         </div>
       )}
