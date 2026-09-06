@@ -108,8 +108,7 @@ export const projects = [
     title: "Food Finder App",
     category: "WEB_SYSTEMS",
     status: "COMPLETE",
-    featured: true,
-    showcaseOrder: 2,
+    featured: false,
     summary:
       "A completed restaurant discovery app prototype built to explore how users could find food by budget, distance, cravings, and vibe.",
     image: "/projects/food-finder.png",
@@ -176,7 +175,7 @@ export const projects = [
     category: "AI_TOOLS",
     status: "COMPLETE",
     featured: true,
-    showcaseOrder: 4,
+    showcaseOrder: 2,
     summary:
       "A public Outlook add-in template that helps developers build their own AI email assistant without using my private backend or API key.",
     image: "/projects/outlookai-template.png",
