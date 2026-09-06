@@ -27,6 +27,7 @@ function ProjectCard({
   const hasDemoLink = Boolean(project.links?.demo)
   const titleLink = project.links?.github || project.links?.demo
   const titleLinkLabel = project.links?.github ? "GITHUB" : "ROBLOX"
+  const imagePositionClass = project.imagePosition || "object-center"
 
   return (
     <article
@@ -38,7 +39,17 @@ function ProjectCard({
           <img
             src={project.image}
             alt={`${project.title} preview`}
-            className="h-full w-full object-cover"
+            className={`h-full w-full object-cover ${imagePositionClass}`}
+          />
+        </div>
+      )}
+
+      {showImage && project.image && project.imageFit === "featured-banner" && (
+        <div className="w-full aspect-[226/82] border-b border-zinc-800 bg-zinc-900 overflow-hidden">
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className={`h-full w-full object-cover ${imagePositionClass}`}
           />
         </div>
       )}
@@ -67,6 +78,7 @@ function ProjectCard({
         project.image &&
         project.imageFit !== "contain" &&
         project.imageFit !== "soft-cover" &&
+        project.imageFit !== "featured-banner" &&
         project.imageFit !== "logo" && (
         <img
           src={project.image}

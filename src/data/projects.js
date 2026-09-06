@@ -9,6 +9,8 @@ export const projects = [
     summary:
       "A pirate adventure game developed in Unity with exploration, combat, progression, multiplayer systems, and a custom user interface.",
     image: "/projects/deadmans-tale.png",
+    imageFit: "featured-banner",
+    imagePosition: "object-[center_46%]",
     details:
       "A completed Unity game project focused on creating a clear player experience across objectives, progression, feedback, and interface systems.",
     problem:
@@ -375,6 +377,8 @@ export const projects = [
     summary:
       "A smart wheelchair prototype that combines computer vision, environmental sensing, and embedded control to improve navigation and obstacle awareness.",
     image: "/projects/navi-smart-wheelchair.png",
+    imageFit: "featured-banner",
+    imagePosition: "object-[center_36%]",
     details:
       "An assistive technology project combining Raspberry Pi processing, ESP32 control, computer vision, and multiple sensing systems.",
     problem:
