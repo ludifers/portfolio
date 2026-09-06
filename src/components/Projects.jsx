@@ -33,6 +33,16 @@ function ProjectCard({
       id={domId}
       className="flex h-full flex-col overflow-hidden bg-zinc-950 border border-cyan-900/60 rounded-2xl hover:border-cyan-500 transition duration-300"
     >
+      {showImage && project.image && project.imageFit === "logo" && (
+        <div className="h-40 w-full border-b border-zinc-800 bg-zinc-900 flex items-center justify-center overflow-hidden p-5">
+          <img
+            src={project.image}
+            alt={`${project.title} preview`}
+            className="h-24 w-auto max-w-[62%] object-contain"
+          />
+        </div>
+      )}
+
       {showImage && project.image && project.imageFit === "contain" && (
         <div className="h-56 w-full border-b border-zinc-800 bg-zinc-900 flex justify-center overflow-hidden">
           <img

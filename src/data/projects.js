@@ -179,11 +179,11 @@ export const projects = [
     summary:
       "A public Outlook add-in template that helps developers build their own AI email assistant without using my private backend or API key.",
     image: "/projects/outlookai-template.png",
-    imageFit: "contain",
+    imageFit: "logo",
     details:
       "A reusable skeleton of my OutlookAI add-in with placeholder frontend and backend URLs, a sample Express/OpenAI backend, production build support, and step-by-step setup instructions.",
     problem:
-      "Sharing the working add-in directly would let other people call my hosted backend and spend my OpenAI credits.",
+      "Using AI while replying to email can be inconvenient when you have to switch tabs, copy email context into a separate tool, bring the response back into Outlook, and keep the original thread intact.",
     solution:
       "Publish a sanitized template repo that keeps the Outlook add-in structure intact while requiring each user to bring their own OpenAI API key, backend deployment, and hosting domain.",
     role:
