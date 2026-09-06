@@ -66,7 +66,8 @@ function ProjectCard({
       {showImage &&
         project.image &&
         project.imageFit !== "contain" &&
-        project.imageFit !== "soft-cover" && (
+        project.imageFit !== "soft-cover" &&
+        project.imageFit !== "logo" && (
         <img
           src={project.image}
           alt={`${project.title} preview`}
