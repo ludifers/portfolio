@@ -38,7 +38,7 @@ function ProjectCard({
           <img
             src={project.image}
             alt={`${project.title} preview`}
-            className="h-24 w-auto max-w-[62%] object-contain"
+            className="h-28 w-auto max-w-[78%] object-contain"
           />
         </div>
       )}
