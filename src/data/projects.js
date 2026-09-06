@@ -171,6 +171,42 @@ export const projects = [
     },
   },
   {
+    id: "outlookai-template",
+    title: "OutlookAI Template",
+    category: "AI_TOOLS",
+    status: "COMPLETE",
+    featured: true,
+    showcaseOrder: 4,
+    summary:
+      "A public Outlook add-in template that helps developers build their own AI email assistant without using my private backend or API key.",
+    image: "/projects/outlookai-template.png",
+    imageFit: "contain",
+    details:
+      "A reusable skeleton of my OutlookAI add-in with placeholder frontend and backend URLs, a sample Express/OpenAI backend, production build support, and step-by-step setup instructions.",
+    problem:
+      "Sharing the working add-in directly would let other people call my hosted backend and spend my OpenAI credits.",
+    solution:
+      "Publish a sanitized template repo that keeps the Outlook add-in structure intact while requiring each user to bring their own OpenAI API key, backend deployment, and hosting domain.",
+    role:
+      "Converted the private working add-in into a public-safe template by replacing personal service URLs with placeholders, adding setup documentation, preserving Outlook compose functionality, and validating the manifest/build flow.",
+    features: [
+      "Outlook Mail add-in manifest",
+      "Message compose task pane",
+      "Generate Reply flow",
+      "Apply Instruction flow",
+      "Insert Into Outlook action",
+      "Express backend example",
+      "OpenAI API environment setup",
+      "Production manifest generation",
+      "Step-by-step README",
+    ],
+    stack: ["Office.js", "JavaScript", "Webpack", "Node.js", "Express", "OpenAI"],
+    links: {
+      github: "https://github.com/ludifers/OutlookAI-Template",
+      demo: "",
+    },
+  },
+  {
     id: "studyrewards",
     title: "StudyRewards",
     category: "FULL_STACK_WEB",
