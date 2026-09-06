@@ -13,25 +13,26 @@ function About() {
         <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl px-5 py-8 sm:px-8 mt-10 text-center">
           <p className="text-gray-300 text-base leading-relaxed max-w-3xl mx-auto sm:text-lg">
             I am a Computer Engineering senior at the University of Central
-            Florida, focused on building at the intersection of hardware and
-            software. I enjoy working close to the system, whether that means
-            writing C/C++, designing digital logic, building web tools, or
-            connecting software to real-world hardware.
+            Florida, focused on building interactive systems across software,
+            hardware, and game technology. I enjoy working close to the system,
+            whether that means writing C/C++, designing digital logic, building
+            gameplay tools, or connecting software to real-world hardware.
           </p>
 
           <p className="text-gray-400 mt-5 leading-relaxed max-w-3xl mx-auto">
-            My current interests include embedded systems, FPGA design, computer
-            architecture, and AI-assisted development. I am looking for
-            job opportunities where I can contribute to technical projects,
-            keep learning from experienced engineers, and turn practical ideas
-            into working systems.
+            My current interests include game development, embedded systems,
+            computer architecture, FPGA design, and AI-assisted development. I
+            am especially interested in roles where I can build interactive
+            experiences, gameplay systems, tools, simulations, or
+            hardware-connected software while continuing to learn from
+            experienced engineers and turn practical ideas into working systems.
           </p>
 
           <div className="grid sm:grid-cols-3 gap-4 mt-8">
             <div className="border border-zinc-800 rounded-xl p-4">
               <p className="text-gray-600 text-xs tracking-[0.2em]">FOCUS</p>
               <p className="text-cyan-400 font-semibold mt-2">
-                Embedded Systems
+                Game Development / Embedded Systems
               </p>
             </div>
 
