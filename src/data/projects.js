@@ -1,0 +1,412 @@
+export const projects = [
+  {
+    id: "deadmans-tale",
+    title: "Deadman's Tale",
+    category: "GAME_DEVELOPMENT",
+    status: "COMPLETE",
+    featured: true,
+    showcaseOrder: 1,
+    summary:
+      "A pirate adventure game developed in Unity with exploration, combat, progression, multiplayer systems, and a custom user interface.",
+    image: "/projects/deadmans-tale.png",
+    imageFit: "featured-banner",
+    imagePosition: "object-[center_46%]",
+    details:
+      "A completed Unity game project focused on creating a clear player experience across objectives, progression, feedback, and interface systems.",
+    problem:
+      "The game needed a clear player experience that connected exploration, combat, objectives, level progression, and interface systems without overwhelming the player.",
+    solution:
+      "Develop a structured gameplay flow using environmental guidance, level progression, interactive prompts, responsive UI, combat feedback, and systems that communicate objectives and player status.",
+    role:
+      "I worked on the game's user interface, level-design elements, player feedback systems, progression flow, audio integration, and several gameplay systems while collaborating with the development team through Git and Unity.",
+    features: [
+      "Level selection and progression",
+      "Environmental tutorials",
+      "Player wayfinding",
+      "Pause menu",
+      "Hotbar and inventory UI",
+      "Damage feedback",
+      "Death screen",
+      "Level-completion system",
+      "Boss-defeat sequence",
+      "Audio and sound effects",
+      "Multiplayer interface elements",
+      "Interactive prompts",
+    ],
+    stack: [
+      "Unity",
+      "C#",
+      "Git",
+      "UI Design",
+      "Game Development",
+      "Level Design",
+    ],
+    links: {
+      github: "https://github.com/ludifers/deadmans-tale",
+      demo: "",
+    },
+  },
+  {
+    id: "two-trials",
+    title: "Two Trials",
+    category: "GAME_DEVELOPMENT",
+    status: "COMPLETE",
+    featured: false,
+    summary:
+      "A playable Roblox demo experience published as a compact game project for testing mechanics, pacing, and player flow.",
+    details:
+      "A Roblox-hosted demo that can be opened and played directly from the portfolio through the live experience page.",
+    problem:
+      "A demo game needs to communicate its core idea quickly while giving players a clear path into the experience without extra setup.",
+    solution:
+      "Build and publish a focused Roblox experience that lets players enter the demo directly, try the gameplay, and evaluate the project in its playable form.",
+    role:
+      "Designed and built the Roblox demo experience, then published it so it can be shared and tested through Roblox.",
+    features: [
+      "Playable Roblox experience",
+      "Browser-accessible demo page",
+      "Rapid gameplay prototyping",
+      "Player-flow testing",
+      "Published experience link",
+    ],
+    stack: ["Roblox Studio", "Lua", "Game Development", "Level Design"],
+    links: {
+      github: "",
+      demo: "https://www.roblox.com/games/129945563747187/Two-Trials",
+    },
+  },
+  {
+    id: "energy-floor-tile",
+    title: "Energy Floor Tile",
+    category: "SUSTAINABLE_SYSTEMS",
+    status: "PLANNED",
+    featured: false,
+    summary:
+      "A prototype floor system that explores how everyday pedestrian movement can be converted into measurable electrical energy.",
+    details:
+      "A planned sustainable systems prototype focused on footstep energy generation, measurement, and visible feedback.",
+    problem:
+      "People generate mechanical energy every time they walk through buildings and public spaces, but most of that energy is unused.",
+    solution:
+      "Design a floor tile that converts the force of a person's step into electrical energy and provides feedback showing how much energy was generated.",
+    role:
+      "Design the tile and mechanical system, create the prototype, integrate the electronics, and develop the system used to measure and display generated energy.",
+    features: [
+      "Step-powered energy generation",
+      "Voltage and current monitoring",
+      "Energy-per-step measurement",
+      "Step counter",
+      "Live energy display",
+      "Microcontroller control",
+    ],
+    stack: ["CAD", "ESP32", "Electronics", "Prototyping", "Sustainable Design"],
+    links: {
+      github: "",
+      demo: "",
+    },
+  },
+  {
+    id: "food-finder",
+    title: "Food Finder App",
+    category: "WEB_SYSTEMS",
+    status: "COMPLETE",
+    featured: false,
+    summary:
+      "A completed restaurant discovery app prototype built to explore how users could find food by budget, distance, cravings, and vibe.",
+    image: "/projects/food-finder.png",
+    details:
+      "Built as a front-end skeleton and product-flow prototype rather than a deployed website, with the code available on GitHub.",
+    problem:
+      "People often spend too much time deciding where to eat when they are balancing budget, distance, cravings, and the kind of place they feel like visiting.",
+    solution:
+      "Create a React-based app structure that organizes restaurant discovery around practical filters and softer preferences like cravings and vibe.",
+    role:
+      "Planned the product flow, structured the filtering concept, designed the interface direction, and built the foundation for the React codebase.",
+    features: [
+      "Budget and distance filtering",
+      "Craving and vibe-based discovery",
+      "Restaurant result cards",
+      "React app structure",
+      "Prototype user flow",
+      "GitHub code archive",
+    ],
+    stack: ["React", "JavaScript", "MySQL", "UI Design"],
+    links: {
+      github: "https://github.com/ludifers/food-finder",
+      demo: "",
+    },
+  },
+  {
+    id: "contact-manager",
+    title: "Contact Manager",
+    category: "FULL_STACK_WEB",
+    status: "COMPLETE",
+    featured: false,
+    summary:
+      "A full-stack contact manager where users can register, log in, and manage a personal address book with searchable contact records.",
+    image: "/projects/contact-manager.png",
+    imageFit: "soft-cover",
+    details:
+      "Built for COP4331 as a small team project with static HTML/CSS/JavaScript screens, PHP API endpoints, and a MySQL database.",
+    problem:
+      "Users need a simple way to store, search, update, and remove contact information while keeping each person's contact list tied to their own account.",
+    solution:
+      "Create a web-based contact manager with account registration, login, cookie-based session state, JSON API calls, and CRUD operations backed by MySQL.",
+    role:
+      "Contributed to the frontend and backend integration by working on the user flow, contact-management screens, JavaScript API calls, and PHP endpoint behavior.",
+    features: [
+      "User registration and login",
+      "Password hashing",
+      "Contact search",
+      "Show-all contacts toggle",
+      "Add contact form",
+      "Edit contact workflow",
+      "Delete contact action",
+      "PHP JSON API endpoints",
+      "MySQL-backed data",
+    ],
+    stack: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+    links: {
+      github: "https://github.com/ludifers/contact-manager",
+      demo: "",
+    },
+  },
+  {
+    id: "outlookai-template",
+    title: "OutlookAI Template",
+    category: "AI_TOOLS",
+    status: "COMPLETE",
+    featured: true,
+    showcaseOrder: 2,
+    summary:
+      "A public Outlook add-in template that helps developers build their own AI email assistant without using my private backend or API key.",
+    image: "/projects/outlookai-template.png",
+    imageFit: "logo",
+    details:
+      "A reusable skeleton of my OutlookAI add-in with placeholder frontend and backend URLs, a sample Express/OpenAI backend, production build support, and step-by-step setup instructions.",
+    problem:
+      "Using AI while replying to email can be inconvenient when you have to switch tabs, copy email context into a separate tool, bring the response back into Outlook, and keep the original thread intact.",
+    solution:
+      "Publish a sanitized template repo that keeps the Outlook add-in structure intact while requiring each user to bring their own OpenAI API key, backend deployment, and hosting domain.",
+    role:
+      "Converted the private working add-in into a public-safe template by replacing personal service URLs with placeholders, adding setup documentation, preserving Outlook compose functionality, and validating the manifest/build flow.",
+    features: [
+      "Outlook Mail add-in manifest",
+      "Message compose task pane",
+      "Generate Reply flow",
+      "Apply Instruction flow",
+      "Insert Into Outlook action",
+      "Express backend example",
+      "OpenAI API environment setup",
+      "Production manifest generation",
+      "Step-by-step README",
+    ],
+    stack: ["Office.js", "JavaScript", "Webpack", "Node.js", "Express", "OpenAI"],
+    links: {
+      github: "https://github.com/ludifers/OutlookAI-Template",
+      demo: "",
+    },
+  },
+  {
+    id: "studyrewards",
+    title: "StudyRewards",
+    category: "FULL_STACK_WEB",
+    status: "COMPLETE",
+    featured: false,
+    summary:
+      "A full-stack study platform where users create flashcard sets, take quizzes, earn points, and unlock reward themes while studying.",
+    image: "/projects/studyrewards.png",
+    imageFit: "contain",
+    details:
+      "Built for COP4331 as a team large project with a React/TypeScript frontend, Express API, MongoDB models, authentication flows, rewards logic, and a companion Flutter mobile app.",
+    problem:
+      "Students need a study tool that keeps review organized and gives them extra motivation to come back, practice, and track progress over time.",
+    solution:
+      "Create a learning app that combines study sets, flashcards, quizzes, login and email flows, points, streaks, reward history, and unlockable visual themes in one connected experience.",
+    role:
+      "I worked on the frontend side of the large project, building user-facing screens, shaping the study flow, and connecting the flashcard, quiz, dashboard, authentication, and rewards interfaces to the rest of the app.",
+    features: [
+      "User login and registration",
+      "Email verification and password reset",
+      "Study set dashboard",
+      "Flashcard review flow",
+      "Quiz generation from cards",
+      "Points and streak rewards",
+      "Unlockable theme store",
+      "Reward history",
+      "Express API routes",
+      "MongoDB data models",
+      "Flutter mobile companion app",
+    ],
+    stack: [
+      "React",
+      "TypeScript",
+      "Express",
+      "MongoDB",
+      "Mongoose",
+      "Flutter",
+      "Vite",
+    ],
+    links: {
+      github: "https://github.com/ludifers/studyrewards",
+      demo: "",
+    },
+  },
+  {
+    id: "interactive-architectural-model",
+    title: "Interactive Architectural Model",
+    category: "INTERACTIVE_ARCHITECTURE",
+    status: "PLANNED",
+    featured: false,
+    summary:
+      "A responsive architectural model that explores how physical spaces can adapt to the people using them.",
+    details:
+      "A Blender architectural design translated into a physical model with sensors, lighting, and responsive system behavior.",
+    problem:
+      "Traditional architectural models communicate form and layout but do not easily demonstrate how a space could respond to people or changing conditions.",
+    solution:
+      "Design a physical architectural model that uses sensors, lighting, and moving elements to demonstrate how a space can respond to its environment.",
+    role:
+      "Develop the concept, sketch and model the structure, construct the physical prototype, and integrate the sensors, electronics, and control system.",
+    features: [
+      "Interactive lighting",
+      "Proximity and occupancy sensing",
+      "Physical architectural model",
+      "ESP32 / Raspberry Pi control",
+      "Responsive architectural elements",
+      "Environmental sensing",
+    ],
+    stack: [
+      "Blender",
+      "ESP32",
+      "Raspberry Pi",
+      "Electronics",
+      "Architecture",
+    ],
+    links: {
+      github: "",
+      demo: "",
+    },
+  },
+  {
+    id: "game-level-spatial-design",
+    title: "Game Level Spatial Design",
+    category: "SPATIAL_DESIGN",
+    status: "PLANNED",
+    featured: false,
+    summary:
+      "A playable environment designed as a study of circulation, wayfinding, sightlines, landmarks, scale, and how players experience a space over time.",
+    details:
+      "A planned level design study focused on spatial hierarchy, environmental guidance, and player movement through a designed game environment.",
+    problem:
+      "Players can easily become confused or disconnected from a game environment when paths, landmarks, objectives, and spatial hierarchy do not clearly communicate where they should go or what they should notice.",
+    solution:
+      "Design a level that naturally guides the player through architecture, terrain, lighting, landmarks, and changes in scale rather than relying entirely on arrows or interface instructions.",
+    role:
+      "I will develop the concept through sketches and top-down diagrams, design the circulation and spatial sequence, create the environment in Blender and Unity, test player movement through the level, and refine the design based on how people navigate the space.",
+    features: [
+      "Player circulation paths",
+      "Primary and secondary routes",
+      "Visual landmarks",
+      "Controlled sightlines",
+      "Spatial hierarchy",
+      "Environmental wayfinding",
+      "Changes in scale",
+      "Exploration areas",
+      "Architectural transitions",
+      "Top-down planning diagrams",
+      "3D environment modeling",
+      "Playtesting and iteration",
+    ],
+    stack: [
+      "Unity",
+      "Blender",
+      "Level Design",
+      "Spatial Design",
+      "Sketching",
+      "Wayfinding",
+    ],
+    links: {
+      github: "",
+      demo: "",
+    },
+  },
+  {
+    id: "projection-mapping-installation",
+    title: "Projection Mapping Installation",
+    category: "INTERACTIVE_MEDIA",
+    status: "PLANNED",
+    featured: false,
+    summary:
+      "An interactive installation that combines physical design, projected animation, and sensors to transform a static surface into a responsive environment.",
+    details:
+      "A planned interactive media installation using projection mapping, sensor input, animation, and a custom physical surface.",
+    problem:
+      "Physical walls and installations are normally static and provide little visual interaction with the people experiencing them.",
+    solution:
+      "Create a designed physical surface that uses projection mapping and sensors to change its appearance based on movement, touch, or proximity.",
+    role:
+      "Design the installation, model the projection surface, create the visual animations, and develop the hardware and software that connect user interaction to the projected environment.",
+    features: [
+      "Projection-mapped animation",
+      "Motion and proximity detection",
+      "Interactive visuals",
+      "Custom physical surface",
+      "Real-time responses",
+      "Optional sound interaction",
+    ],
+    stack: [
+      "Blender",
+      "Projection Mapping",
+      "Sensors",
+      "Animation",
+      "Raspberry Pi",
+    ],
+    links: {
+      github: "",
+      demo: "",
+    },
+  },
+  {
+    id: "navi-smart-wheelchair",
+    title: "N.A.V.I. Smart Wheelchair",
+    category: "EMBEDDED_SYSTEMS",
+    status: "IN_PROGRESS",
+    featured: true,
+    showcaseOrder: 3,
+    summary:
+      "A smart wheelchair prototype that combines computer vision, environmental sensing, and embedded control to improve navigation and obstacle awareness.",
+    image: "/projects/navi-smart-wheelchair.png",
+    imageFit: "featured-banner",
+    imagePosition: "object-[center_36%]",
+    details:
+      "An assistive technology project combining Raspberry Pi processing, ESP32 control, computer vision, and multiple sensing systems.",
+    problem:
+      "Powered wheelchair users can encounter obstacles and navigation challenges while traditional systems provide limited awareness of the surrounding environment.",
+    solution:
+      "Develop a wheelchair system that combines cameras, distance sensors, orientation sensing, embedded processing, and emergency controls to provide additional environmental awareness and navigation assistance.",
+    role:
+      "Develop the sensing and processing system by integrating the Raspberry Pi, cameras, ESP32, IMU, and ultrasonic sensors while contributing to computer vision, communication, testing, and overall hardware-software integration.",
+    features: [
+      "Computer vision",
+      "Red hazard detection",
+      "Green target detection",
+      "Time-of-Flight depth sensing",
+      "Ultrasonic obstacle detection",
+      "Orientation sensing",
+      "Emergency stop",
+      "Joystick control",
+      "Raspberry Pi 5",
+      "ESP32 control",
+    ],
+    stack: ["Python", "OpenCV", "Raspberry Pi", "ESP32", "Embedded Systems"],
+    links: {
+      github: "",
+      demo: "",
+    },
+  },
+].sort((a, b) => a.title.localeCompare(b.title))
+
+export const featuredProjects = projects
+  .filter((project) => project.featured)
+  .sort((a, b) => a.showcaseOrder - b.showcaseOrder)

@@ -1,0 +1,59 @@
+function About() {
+  return (
+    <section className="min-h-screen snap-start bg-black text-white px-5 pt-28 pb-12 flex items-center sm:px-8 sm:pb-16">
+      <div className="w-full max-w-6xl mx-auto">
+        <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm">
+          OPERATOR_PROFILE
+        </p>
+
+        <h2 className="text-3xl font-bold mt-4 sm:text-4xl">About Me</h2>
+
+        <div className="w-20 h-px bg-cyan-400 mt-6"></div>
+
+        <div className="bg-zinc-950 border border-cyan-900/60 rounded-2xl px-5 py-8 sm:px-8 mt-10 text-center">
+          <p className="text-gray-300 text-base leading-relaxed max-w-3xl mx-auto sm:text-lg">
+            I am a Computer Engineering senior at the University of Central
+            Florida, focused on building interactive systems across software,
+            hardware, and game technology. I enjoy working close to the system,
+            whether that means writing C/C++, designing digital logic, building
+            gameplay tools, or connecting software to real-world hardware.
+          </p>
+
+          <p className="text-gray-400 mt-5 leading-relaxed max-w-3xl mx-auto">
+            My current interests include game development, embedded systems,
+            computer architecture, FPGA design, and AI-assisted development. I
+            am especially interested in roles where I can build interactive
+            experiences, gameplay systems, tools, simulations, or
+            hardware-connected software while continuing to learn from
+            experienced engineers and turn practical ideas into working systems.
+          </p>
+
+          <div className="grid sm:grid-cols-3 gap-4 mt-8">
+            <div className="border border-zinc-800 rounded-xl p-4">
+              <p className="text-gray-600 text-xs tracking-[0.2em]">FOCUS</p>
+              <p className="text-cyan-400 font-semibold mt-2">
+                Game Development / Embedded Systems
+              </p>
+            </div>
+
+            <div className="border border-zinc-800 rounded-xl p-4">
+              <p className="text-gray-600 text-xs tracking-[0.2em]">PROGRAM</p>
+              <p className="text-cyan-400 font-semibold mt-2">
+                Computer Engineering
+              </p>
+            </div>
+
+            <div className="border border-zinc-800 rounded-xl p-4">
+              <p className="text-gray-600 text-xs tracking-[0.2em]">STATUS</p>
+              <p className="text-cyan-400 font-semibold mt-2">
+                Seeking Job
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default About
