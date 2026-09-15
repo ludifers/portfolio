@@ -1,4 +1,4 @@
-import { Link, Navigate, useParams } from "react-router-dom"
+import { Navigate, useNavigate, useParams } from "react-router-dom"
 import { projects } from "../data/projects"
 
 const statusStyles = {
@@ -9,6 +9,7 @@ const statusStyles = {
 
 function ProjectDetail() {
   const { projectId } = useParams()
+  const navigate = useNavigate()
   const projectIndex = projects.findIndex((item) => item.id === projectId)
 
   if (projectIndex === -1) {
@@ -25,13 +26,30 @@ function ProjectDetail() {
   return (
     <main className="terminal-scrollbar min-h-screen overflow-y-auto bg-black text-white">
       <div className="mx-auto max-w-6xl px-5 pt-28 pb-16 sm:px-8 sm:pt-32">
-        <section className="border-b border-zinc-800 pb-8">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="text-xs font-semibold tracking-[0.28em] text-cyan-400 sm:tracking-[0.4em]">
-              {project.category}
-            </span>
+        <section className="grid border-b border-zinc-800 pb-5 text-sm sm:grid-cols-3">
+          <div className="border-zinc-800 py-3 text-center sm:border-r sm:px-5">
+            <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
+              PROJECT
+            </p>
+            <select
+              value={project.id}
+              onChange={(event) => navigate(`/projects/${event.target.value}`)}
+              className="mt-2 w-full rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-center text-gray-300 outline-none transition hover:border-cyan-800 focus:border-cyan-400"
+              aria-label="Choose a project"
+            >
+              {projects.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.title}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="py-3 text-center sm:px-5">
+            <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
+              STATUS
+            </p>
             <span
-              className={`rounded-lg border px-3 py-2 text-xs ${
+              className={`mt-2 inline-flex w-fit rounded-lg border px-3 py-2 text-xs ${
                 statusStyles[project.status] ||
                 "border-zinc-800 bg-zinc-900 text-gray-500"
               }`}
@@ -39,12 +57,47 @@ function ProjectDetail() {
               {project.status}
             </span>
           </div>
+          <div className="border-zinc-800 py-3 text-center sm:border-l sm:px-5">
+            <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
+              GITHUB
+            </p>
+            {project.links.github ? (
+              <a
+                href={project.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-2 inline-flex w-fit rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-3 py-2 text-xs text-cyan-400 transition hover:border-cyan-500 hover:text-cyan-300"
+                aria-label={`Open GitHub repository for ${project.title}`}
+              >
+                REPOSITORY
+              </a>
+            ) : (
+              <p className="mt-2 text-gray-500">Unavailable</p>
+            )}
+          </div>
+        </section>
 
-          <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
+        <section className="border-b border-zinc-800 py-8">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
             <div>
               <h1 className="text-4xl font-bold leading-tight sm:text-6xl">
                 {project.title}
               </h1>
+              <select
+                value={project.id}
+                onChange={(event) => navigate(`/projects/${event.target.value}`)}
+                className="mt-4 w-full max-w-xs rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-sm text-gray-300 outline-none transition hover:border-cyan-800 focus:border-cyan-400 sm:max-w-sm"
+                aria-label="Choose a project from the page title"
+              >
+                {projects.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    {item.title}
+                  </option>
+                ))}
+              </select>
+              <p className="mt-4 text-xs font-semibold tracking-[0.28em] text-cyan-400 sm:tracking-[0.4em]">
+                {project.category}
+              </p>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-gray-300">
                 {project.summary}
               </p>
@@ -61,45 +114,6 @@ function ProjectDetail() {
                   Live Demo
                 </a>
               </div>
-            )}
-          </div>
-        </section>
-
-        <section className="grid border-b border-zinc-800 py-5 text-sm sm:grid-cols-4">
-          <div className="border-zinc-800 py-3 sm:border-r sm:pr-5">
-            <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
-              PROJECT
-            </p>
-            <p className="mt-2 text-gray-300">{project.title}</p>
-          </div>
-          <div className="border-zinc-800 py-3 sm:border-r sm:px-5">
-            <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
-              TYPE
-            </p>
-            <p className="mt-2 text-gray-300">{project.category}</p>
-          </div>
-          <div className="py-3 sm:pl-5">
-            <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
-              STATUS
-            </p>
-            <p className="mt-2 text-gray-300">{project.status}</p>
-          </div>
-          <div className="border-zinc-800 py-3 sm:border-l sm:pl-5">
-            <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
-              GITHUB
-            </p>
-            {project.links.github ? (
-              <a
-                href={project.links.github}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-flex text-cyan-300 transition hover:text-white"
-                aria-label={`Open GitHub repository for ${project.title}`}
-              >
-                Repository
-              </a>
-            ) : (
-              <p className="mt-2 text-gray-500">Unavailable</p>
             )}
           </div>
         </section>
