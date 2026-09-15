@@ -54,22 +54,33 @@ function ProjectDetail() {
         <section className="border-b border-zinc-800 py-8">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
             <div>
-              <div ref={titleMenuRef} className="relative inline-block max-w-full">
-                <h1 className="text-4xl font-bold leading-tight sm:text-6xl">
-                  <button
-                    type="button"
-                    onClick={() => setTitleMenuOpen((open) => !open)}
-                    className="group inline-flex max-w-full items-center gap-3 rounded-lg border border-transparent bg-black py-1 pr-3 text-left outline-none transition hover:border-cyan-900 focus-visible:border-cyan-400"
-                    aria-expanded={titleMenuOpen}
-                    aria-haspopup="listbox"
-                    aria-label="Choose a project from the title"
-                  >
-                    <span className="min-w-0 break-words">{project.title}</span>
-                    <span className="shrink-0 rounded-md border border-cyan-800/70 bg-cyan-500/10 px-2 py-1 text-sm font-semibold leading-none text-cyan-400 transition group-hover:border-cyan-500 group-hover:text-cyan-300">
-                      v
-                    </span>
-                  </button>
-                </h1>
+              <div ref={titleMenuRef} className="relative max-w-full">
+                <div className="flex flex-wrap items-center gap-3">
+                  <h1 className="text-4xl font-bold leading-tight sm:text-6xl">
+                    <button
+                      type="button"
+                      onClick={() => setTitleMenuOpen((open) => !open)}
+                      className="inline-flex max-w-full rounded-lg border border-transparent bg-black py-1 pr-2 text-left outline-none transition hover:border-cyan-900 focus-visible:border-cyan-400"
+                      aria-expanded={titleMenuOpen}
+                      aria-haspopup="listbox"
+                      aria-label="Choose a project from the title"
+                    >
+                      <span className="min-w-0 break-words">{project.title}</span>
+                    </button>
+                  </h1>
+
+                  {project.links.github && (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex w-fit rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-3 py-2 text-xs text-cyan-400 transition hover:border-cyan-500 hover:text-cyan-300"
+                      aria-label={`Open GitHub repository for ${project.title}`}
+                    >
+                      GITHUB
+                    </a>
+                  )}
+                </div>
 
                 {titleMenuOpen && (
                   <div
@@ -113,6 +124,7 @@ function ProjectDetail() {
                   {project.status}
                 </span>
               </div>
+
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-gray-300">
                 {project.summary}
               </p>
@@ -160,17 +172,6 @@ function ProjectDetail() {
             <p className="max-w-3xl text-xl leading-relaxed text-gray-300">
               {project.details}
             </p>
-            {project.links.github && (
-              <a
-                href={project.links.github}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex w-fit rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-3 py-2 text-xs text-cyan-400 transition hover:border-cyan-500 hover:text-cyan-300"
-                aria-label={`Open GitHub repository for ${project.title}`}
-              >
-                GITHUB
-              </a>
-            )}
             <div className="mt-6 flex flex-wrap gap-2">
               {project.stack.map((tech) => (
                 <span
