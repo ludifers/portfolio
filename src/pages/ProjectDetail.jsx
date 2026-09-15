@@ -69,7 +69,7 @@ function ProjectDetail() {
                     </button>
                   </h1>
 
-                  {project.links.github && (
+                  {project.links.github ? (
                     <a
                       href={project.links.github}
                       target="_blank"
@@ -79,6 +79,17 @@ function ProjectDetail() {
                     >
                       GITHUB
                     </a>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        window.alert("GitHub repository unavailable for this project.")
+                      }
+                      className="inline-flex w-fit rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-3 py-2 text-xs text-cyan-400 transition hover:border-cyan-500 hover:text-cyan-300"
+                      aria-label={`GitHub repository unavailable for ${project.title}`}
+                    >
+                      GITHUB
+                    </button>
                   )}
                 </div>
 
