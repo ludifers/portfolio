@@ -51,27 +51,6 @@ function ProjectDetail() {
   return (
     <main className="terminal-scrollbar min-h-screen overflow-y-auto bg-black text-white">
       <div className="mx-auto max-w-6xl px-5 pt-28 pb-16 sm:px-8 sm:pt-32">
-        <section className="border-b border-zinc-800 pb-5 text-sm">
-          <div className="py-3 text-center">
-            <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
-              GITHUB
-            </p>
-            {project.links.github ? (
-              <a
-                href={project.links.github}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 inline-flex w-fit rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-3 py-2 text-xs text-cyan-400 transition hover:border-cyan-500 hover:text-cyan-300"
-                aria-label={`Open GitHub repository for ${project.title}`}
-              >
-                REPOSITORY
-              </a>
-            ) : (
-              <p className="mt-2 text-gray-500">UNAVAILABLE</p>
-            )}
-          </div>
-        </section>
-
         <section className="border-b border-zinc-800 py-8">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
             <div>
@@ -181,6 +160,17 @@ function ProjectDetail() {
             <p className="max-w-3xl text-xl leading-relaxed text-gray-300">
               {project.details}
             </p>
+            {project.links.github && (
+              <a
+                href={project.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-5 inline-flex w-fit rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-3 py-2 text-xs text-cyan-400 transition hover:border-cyan-500 hover:text-cyan-300"
+                aria-label={`Open GitHub repository for ${project.title}`}
+              >
+                GITHUB
+              </a>
+            )}
             <div className="mt-6 flex flex-wrap gap-2">
               {project.stack.map((tech) => (
                 <span
