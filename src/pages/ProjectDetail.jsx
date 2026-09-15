@@ -51,38 +51,8 @@ function ProjectDetail() {
   return (
     <main className="terminal-scrollbar min-h-screen overflow-y-auto bg-black text-white">
       <div className="mx-auto max-w-6xl px-5 pt-28 pb-16 sm:px-8 sm:pt-32">
-        <section className="grid border-b border-zinc-800 pb-5 text-sm sm:grid-cols-3">
-          <div className="border-zinc-800 py-3 text-center sm:border-r sm:px-5">
-            <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
-              PROJECT
-            </p>
-            <select
-              value={project.id}
-              onChange={(event) => navigate(`/projects/${event.target.value}`)}
-              className="mt-2 w-full rounded-lg border border-zinc-800 bg-zinc-950 px-3 py-2 text-center text-gray-300 outline-none transition hover:border-cyan-800 focus:border-cyan-400"
-              aria-label="Choose a project"
-            >
-              {projects.map((item) => (
-                <option key={item.id} value={item.id}>
-                  {item.title}
-                </option>
-              ))}
-            </select>
-          </div>
-          <div className="py-3 text-center sm:px-5">
-            <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
-              STATUS
-            </p>
-            <span
-              className={`mt-2 inline-flex w-fit rounded-lg border px-3 py-2 text-xs ${
-                statusStyles[project.status] ||
-                "border-zinc-800 bg-zinc-900 text-gray-500"
-              }`}
-            >
-              {project.status}
-            </span>
-          </div>
-          <div className="border-zinc-800 py-3 text-center sm:border-l sm:px-5">
+        <section className="border-b border-zinc-800 pb-5 text-sm">
+          <div className="py-3 text-center">
             <p className="text-xs font-semibold tracking-[0.2em] text-gray-600">
               GITHUB
             </p>
@@ -97,7 +67,7 @@ function ProjectDetail() {
                 REPOSITORY
               </a>
             ) : (
-              <p className="mt-2 text-gray-500">Unavailable</p>
+              <p className="mt-2 text-gray-500">UNAVAILABLE</p>
             )}
           </div>
         </section>
@@ -151,9 +121,19 @@ function ProjectDetail() {
                 )}
               </div>
 
-              <p className="mt-4 text-xs font-semibold tracking-[0.28em] text-cyan-400 sm:tracking-[0.4em]">
-                {project.category}
-              </p>
+              <div className="mt-4 flex flex-wrap items-center gap-3">
+                <p className="text-xs font-semibold tracking-[0.28em] text-cyan-400 sm:tracking-[0.4em]">
+                  {project.category}
+                </p>
+                <span
+                  className={`inline-flex w-fit rounded-lg border px-3 py-2 text-xs ${
+                    statusStyles[project.status] ||
+                    "border-zinc-800 bg-zinc-900 text-gray-500"
+                  }`}
+                >
+                  {project.status}
+                </span>
+              </div>
               <p className="mt-6 max-w-3xl text-lg leading-relaxed text-gray-300">
                 {project.summary}
               </p>
