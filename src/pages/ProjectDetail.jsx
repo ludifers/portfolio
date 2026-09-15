@@ -50,22 +50,22 @@ function ProjectDetail() {
 
   return (
     <main className="terminal-scrollbar min-h-screen overflow-y-auto bg-black text-white">
-      <div className="mx-auto max-w-6xl px-5 pt-28 pb-16 sm:px-8 sm:pt-32">
+      <div className="mx-auto max-w-6xl px-5 pt-24 pb-16 sm:px-8 sm:pt-28">
         <section className="border-b border-zinc-800 py-8">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_18rem] lg:items-end">
             <div>
               <div ref={titleMenuRef} className="relative max-w-full">
-                <div className="flex flex-wrap items-center gap-3">
-                  <h1 className="text-4xl font-bold leading-tight sm:text-6xl">
+                <div className="flex max-w-full flex-nowrap items-center gap-8 overflow-visible">
+                  <h1 className="shrink-0 text-4xl font-bold leading-tight sm:text-5xl">
                     <button
                       type="button"
                       onClick={() => setTitleMenuOpen((open) => !open)}
-                      className="inline-flex max-w-full rounded-lg border border-transparent bg-black py-1 pr-2 text-left outline-none transition hover:border-cyan-900 focus-visible:border-cyan-400"
+                      className="inline-flex rounded-lg border border-transparent bg-black py-1 pr-2 text-left outline-none transition focus-visible:border-cyan-400"
                       aria-expanded={titleMenuOpen}
                       aria-haspopup="listbox"
                       aria-label="Choose a project from the title"
                     >
-                      <span className="min-w-0 break-words">{project.title}</span>
+                      <span className="whitespace-nowrap">{project.title}</span>
                     </button>
                   </h1>
 
@@ -74,7 +74,7 @@ function ProjectDetail() {
                       href={project.links.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex w-fit rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-3 py-2 text-xs text-cyan-400 transition hover:border-cyan-500 hover:text-cyan-300"
+                      className="inline-flex w-fit shrink-0 rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-4 py-2.5 text-sm font-semibold text-cyan-400 transition hover:border-cyan-500 hover:text-cyan-300"
                       aria-label={`Open GitHub repository for ${project.title}`}
                     >
                       GITHUB
@@ -82,10 +82,8 @@ function ProjectDetail() {
                   ) : (
                     <button
                       type="button"
-                      onClick={() =>
-                        window.alert("GitHub repository unavailable for this project.")
-                      }
-                      className="inline-flex w-fit rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-3 py-2 text-xs text-cyan-400 transition hover:border-cyan-500 hover:text-cyan-300"
+                      onClick={() => window.alert("Coming soon")}
+                      className="inline-flex w-fit shrink-0 rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-4 py-2.5 text-sm font-semibold text-cyan-400 transition hover:border-cyan-500 hover:text-cyan-300"
                       aria-label={`GitHub repository unavailable for ${project.title}`}
                     >
                       GITHUB

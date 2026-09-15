@@ -19,6 +19,7 @@ const projectFilters = [
 function ProjectCard({
   project,
   compact = false,
+  dense = false,
   domId,
   showImage = true,
 }) {
@@ -94,19 +95,31 @@ function ProjectCard({
         />
       )}
 
-      <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <div className="flex flex-col gap-4 border-b border-zinc-800 pb-4 sm:flex-row sm:items-start sm:justify-between">
+      <div className={`flex flex-1 flex-col ${dense ? "p-4" : "p-5 sm:p-6"}`}>
+        <div
+          className={`flex flex-col border-b border-zinc-800 sm:flex-row sm:items-start sm:justify-between ${
+            dense ? "gap-3 pb-3" : "gap-4 pb-4"
+          }`}
+        >
         <div>
-          <p className="text-cyan-400 tracking-[0.16em] text-xs font-semibold sm:tracking-[0.2em]">
+          <p
+            className={`text-cyan-400 text-xs font-semibold ${
+              dense ? "tracking-[0.12em]" : "tracking-[0.16em] sm:tracking-[0.2em]"
+            }`}
+          >
             {project.category}
           </p>
-          <h3 className="text-xl font-semibold mt-3 transition group-hover:text-cyan-300 sm:text-2xl">
+          <h3
+            className={`font-semibold transition group-hover:text-cyan-300 ${
+              dense ? "mt-2 text-lg sm:text-xl" : "mt-3 text-xl sm:text-2xl"
+            }`}
+          >
             {project.title}
           </h3>
         </div>
 
         <span
-          className={`w-fit text-xs border rounded-lg px-3 py-2 ${
+          className={`w-fit text-xs border rounded-lg ${dense ? "px-2.5 py-1.5" : "px-3 py-2"} ${
             statusStyles[project.status] ||
             "border-zinc-800 bg-zinc-900 text-gray-500"
           }`}
@@ -115,17 +128,31 @@ function ProjectCard({
         </span>
         </div>
 
-        <p className="text-gray-400 mt-5 leading-relaxed">{project.summary}</p>
+        <p
+          className={`text-gray-400 leading-relaxed ${
+            dense ? "mt-4 text-sm" : "mt-5"
+          }`}
+        >
+          {project.summary}
+        </p>
 
         {!compact && (
-          <p className="text-gray-500 mt-4 leading-relaxed">{project.details}</p>
+          <p
+            className={`text-gray-500 leading-relaxed ${
+              dense ? "mt-3 text-sm" : "mt-4"
+            }`}
+          >
+            {project.details}
+          </p>
         )}
 
-        <div className="flex flex-wrap gap-2 mt-6">
+        <div className={`flex flex-wrap gap-2 ${dense ? "mt-4" : "mt-6"}`}>
           {project.stack.map((tech) => (
             <span
               key={tech}
-              className="bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2 text-sm text-gray-300"
+              className={`bg-zinc-900 border border-zinc-800 rounded-lg text-gray-300 ${
+                dense ? "px-2.5 py-1.5 text-xs" : "px-3 py-2 text-sm"
+              }`}
             >
               {tech}
             </span>
@@ -133,7 +160,7 @@ function ProjectCard({
         </div>
 
         {!compact && (
-          <div className="flex flex-wrap items-center justify-end gap-3 mt-auto pt-6">
+          <div className={`flex flex-wrap items-center justify-end gap-3 mt-auto ${dense ? "pt-4" : "pt-6"}`}>
             {hasDemoLink && (
               <a
                 href={project.links.demo}
@@ -141,7 +168,9 @@ function ProjectCard({
                 rel="noreferrer"
                 onClick={(event) => event.stopPropagation()}
                 onKeyDown={(event) => event.stopPropagation()}
-                className="border border-zinc-800 rounded-xl px-4 py-2 text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition"
+                className={`border border-zinc-800 rounded-xl text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition ${
+                  dense ? "px-3 py-1.5 text-sm" : "px-4 py-2"
+                }`}
               >
                 Live Demo
               </a>
@@ -169,7 +198,7 @@ function Projects({ preview = false }) {
       ? shownProjects
       : shownProjects.filter((project) => project.status === activeFilter)
   const groupedProjects = filteredProjects.reduce((groups, project, index) => {
-    if (index % 2 === 0) {
+    if (index % 4 === 0) {
       groups.push([project])
     } else {
       groups[groups.length - 1].push(project)
@@ -331,13 +360,14 @@ function Projects({ preview = false }) {
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-5 mt-8">
+            <div className="grid gap-5 mt-8 md:grid-cols-2">
               {projectGroup.map((project) => (
                   <ProjectCard
                     key={project.id}
                     project={project}
                     domId={`project-${project.id}`}
                     showImage={false}
+                    dense
                   />
               ))}
             </div>
