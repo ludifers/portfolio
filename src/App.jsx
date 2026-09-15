@@ -7,6 +7,7 @@ import Projects from "./components/Projects"
 import Skills from "./components/Skills"
 import Certificates from "./components/Certificates"
 import Contact from "./components/Contact"
+import ProjectDetail from "./pages/ProjectDetail"
 
 function Homepage() {
   return (
@@ -54,6 +55,7 @@ function App()
       <Route path="/" element={<Homepage />}></Route>
       
       <Route path="/projects" element={<Projects />}></Route>
+      <Route path="/projects/:projectId" element={<ProjectDetail />}></Route>
  
       <Route path="/contact" element={<Contact />}></Route>
     </Routes>    

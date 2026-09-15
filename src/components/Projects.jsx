@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { featuredProjects, projects } from "../data/projects"
 
 const statusStyles = {
@@ -19,20 +19,27 @@ const projectFilters = [
 function ProjectCard({
   project,
   compact = false,
-  expanded = false,
-  onToggle,
   domId,
   showImage = true,
 }) {
+  const navigate = useNavigate()
   const hasDemoLink = Boolean(project.links?.demo)
-  const titleLink = project.links?.github || project.links?.demo
-  const titleLinkLabel = project.links?.github ? "GITHUB" : "ROBLOX"
   const imagePositionClass = project.imagePosition || "object-center"
+  const openProject = () => navigate(`/projects/${project.id}`)
 
   return (
     <article
       id={domId}
-      className="flex h-full flex-col overflow-hidden bg-zinc-950 border border-cyan-900/60 rounded-2xl hover:border-cyan-500 transition duration-300"
+      role="link"
+      tabIndex={0}
+      onClick={openProject}
+      onKeyDown={(event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault()
+          openProject()
+        }
+      }}
+      className="group flex h-full cursor-pointer flex-col overflow-hidden bg-zinc-950 border border-cyan-900/60 rounded-2xl outline-none transition duration-300 hover:border-cyan-500 focus-visible:border-cyan-400 focus-visible:ring-2 focus-visible:ring-cyan-400/40"
     >
       {showImage && project.image && project.imageFit === "logo" && (
         <div className="w-full aspect-[226/82] border-b border-zinc-800 bg-white overflow-hidden">
@@ -93,23 +100,8 @@ function ProjectCard({
           <p className="text-cyan-400 tracking-[0.16em] text-xs font-semibold sm:tracking-[0.2em]">
             {project.category}
           </p>
-          <h3 className="text-xl font-semibold mt-3 sm:text-2xl">
-            {titleLink ? (
-              <a
-                href={titleLink}
-                target="_blank"
-                rel="noreferrer"
-                onClick={(event) => event.stopPropagation()}
-                className="group inline-flex flex-wrap items-center gap-2 hover:text-cyan-400 transition"
-              >
-                <span>{project.title}</span>
-                <span className="rounded-full border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-[0.65rem] font-semibold tracking-[0.18em] text-gray-400 transition group-hover:border-cyan-800 group-hover:text-cyan-400">
-                  {titleLinkLabel} -&gt;
-                </span>
-              </a>
-            ) : (
-              project.title
-            )}
+          <h3 className="text-xl font-semibold mt-3 transition group-hover:text-cyan-300 sm:text-2xl">
+            {project.title}
           </h3>
         </div>
 
@@ -125,55 +117,8 @@ function ProjectCard({
 
         <p className="text-gray-400 mt-5 leading-relaxed">{project.summary}</p>
 
-        {!compact && !expanded && (
+        {!compact && (
           <p className="text-gray-500 mt-4 leading-relaxed">{project.details}</p>
-        )}
-
-        {expanded && (
-          <div className="mt-6 space-y-5 border-t border-zinc-800 pt-6">
-            <div>
-              <p className="text-gray-600 tracking-[0.2em] text-xs font-semibold">
-                PROBLEM
-              </p>
-              <p className="text-gray-400 mt-2 leading-relaxed">
-                {project.problem}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-gray-600 tracking-[0.2em] text-xs font-semibold">
-                SOLUTION
-              </p>
-              <p className="text-gray-400 mt-2 leading-relaxed">
-                {project.solution}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-gray-600 tracking-[0.2em] text-xs font-semibold">
-                MY_ROLE
-              </p>
-              <p className="text-gray-400 mt-2 leading-relaxed">
-                {project.role}
-              </p>
-            </div>
-
-            <div>
-              <p className="text-gray-600 tracking-[0.2em] text-xs font-semibold">
-                FEATURES
-              </p>
-              <ul className="grid sm:grid-cols-2 gap-2 mt-3">
-                {project.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="border border-zinc-800 bg-zinc-900 rounded-lg px-3 py-2 text-gray-300 text-sm"
-                  >
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         )}
 
         <div className="flex flex-wrap gap-2 mt-6">
@@ -189,40 +134,17 @@ function ProjectCard({
 
         {!compact && (
           <div className="flex flex-wrap items-center justify-end gap-3 mt-auto pt-6">
-            <button
-              type="button"
-              onClick={onToggle}
-              className={`group inline-flex items-center gap-3 rounded-full border px-4 py-2 text-sm font-semibold transition ${
-                expanded
-                  ? "border-zinc-500 bg-zinc-800 text-gray-100 hover:border-zinc-300 hover:bg-zinc-700"
-                  : "border-zinc-500 bg-zinc-800 text-gray-100 hover:border-zinc-300 hover:bg-zinc-700"
-              }`}
-            >
-              <span
-                className={`grid h-6 w-6 place-items-center rounded-full text-base leading-none ${
-                  expanded
-                    ? "border border-zinc-500 bg-black text-white"
-                    : "bg-zinc-950 text-gray-200"
-                }`}
+            {hasDemoLink && (
+              <a
+                href={project.links.demo}
+                target="_blank"
+                rel="noreferrer"
+                onClick={(event) => event.stopPropagation()}
+                onKeyDown={(event) => event.stopPropagation()}
+                className="border border-zinc-800 rounded-xl px-4 py-2 text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition"
               >
-                {expanded ? "-" : "+"}
-              </span>
-              {expanded ? "HIDE_DETAILS" : "EXPAND_DETAILS"}
-            </button>
-
-            {expanded && hasDemoLink && (
-              <>
-                {project.links.demo && (
-                  <a
-                    href={project.links.demo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="border border-zinc-800 rounded-xl px-4 py-2 text-gray-300 hover:text-cyan-400 hover:border-cyan-800 transition"
-                  >
-                    Live Demo
-                  </a>
-                )}
-              </>
+                Live Demo
+              </a>
             )}
           </div>
         )}
@@ -233,7 +155,6 @@ function ProjectCard({
 
 function Projects({ preview = false }) {
   const location = useLocation()
-  const [expandedProject, setExpandedProject] = useState("")
   const [activeFilter, setActiveFilter] = useState("ALL")
   const shownProjects = preview ? featuredProjects : projects
   const filterCounts = shownProjects.reduce(
@@ -271,7 +192,6 @@ function Projects({ preview = false }) {
       : `project-${projectId}`
 
     window.requestAnimationFrame(() => {
-      setExpandedProject(targetId)
       document.getElementById(targetId)?.scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -298,14 +218,12 @@ function Projects({ preview = false }) {
 
             <div className={`grid gap-5 ${projectGridSpacing} md:grid-cols-3`}>
               {shownProjects.map((project) => (
-                <Link
+                <div
                   key={project.id}
-                  to={`/projects#featured-${project.id}`}
                   className="block"
-                  aria-label={`Open project ledger for ${project.title}`}
                 >
                   <ProjectCard project={project} compact />
-                </Link>
+                </div>
               ))}
             </div>
 
@@ -355,14 +273,6 @@ function Projects({ preview = false }) {
                   key={project.id}
                   project={project}
                   domId={`featured-${project.id}`}
-                  expanded={expandedProject === `featured-${project.id}`}
-                  onToggle={() =>
-                    setExpandedProject((currentProject) =>
-                      currentProject === `featured-${project.id}`
-                        ? ""
-                        : `featured-${project.id}`
-                    )
-                  }
                 />
               ))}
             </div>
@@ -370,17 +280,11 @@ function Projects({ preview = false }) {
       </section>
 
       {groupedProjects.map((projectGroup) => {
-        const hasExpandedProject = projectGroup.some(
-          (project) => expandedProject === `project-${project.id}`,
-        )
-
         return (
         <section
           key={projectGroup.map((project) => project.id).join("-")}
           id={`project-${projectGroup[0].id}`}
-          className={`terminal-scrollbar snap-start bg-black px-5 pt-28 flex items-center overflow-y-auto sm:px-8 ${
-            hasExpandedProject ? "min-h-screen pb-64 sm:pb-80" : "min-h-screen pb-28 sm:pb-40"
-          }`}
+          className="terminal-scrollbar min-h-screen snap-start bg-black px-5 pt-28 pb-28 flex items-center overflow-y-auto sm:px-8 sm:pb-40"
         >
           <div className="max-w-6xl mx-auto w-full">
             <p className="text-gray-600 tracking-[0.28em] text-xs sm:tracking-[0.4em] sm:text-sm">
@@ -410,7 +314,6 @@ function Projects({ preview = false }) {
                       type="button"
                       onClick={() => {
                         setActiveFilter(filter.value)
-                        setExpandedProject("")
                       }}
                       className={`inline-flex items-baseline gap-1.5 rounded-xl border px-4 py-2 text-sm font-semibold transition ${
                         isActive
@@ -435,14 +338,6 @@ function Projects({ preview = false }) {
                     project={project}
                     domId={`project-${project.id}`}
                     showImage={false}
-                    expanded={expandedProject === `project-${project.id}`}
-                    onToggle={() =>
-                      setExpandedProject((currentProject) =>
-                        currentProject === `project-${project.id}`
-                          ? ""
-                          : `project-${project.id}`
-                      )
-                    }
                   />
               ))}
             </div>
