@@ -3,9 +3,9 @@ export const projects = [
     id: "warehouse-simulator",
     title: "Warehouse Simulator",
     image: "/projects/warehouse-simulator.png",
-    imageFit: "contain",
+    imageFit: "screenshot",
     category: "SIMULATION",
-    status: "IN_PROGRESS",
+    status: "COMPLETE",
     featured: false,
     summary:
       "A C++ warehouse fleet simulator with autonomous robots, BFS and A* pathfinding, traffic coordination, and delivery performance tracking.",

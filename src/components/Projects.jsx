@@ -62,6 +62,14 @@ function ProjectCard({
         </div>
       )}
 
+      {showImage && project.image && project.imageFit === "screenshot" && (
+        <img
+          src={project.image}
+          alt={`${project.title} preview`}
+          className="block h-auto w-full border-b border-zinc-800"
+        />
+      )}
+
       {showImage && project.image && project.imageFit === "contain" && (
         <div className="h-56 w-full border-b border-zinc-800 bg-zinc-900 flex justify-center overflow-hidden">
           <img
@@ -85,6 +93,7 @@ function ProjectCard({
       {showImage &&
         project.image &&
         project.imageFit !== "contain" &&
+        project.imageFit !== "screenshot" &&
         project.imageFit !== "soft-cover" &&
         project.imageFit !== "featured-banner" &&
         project.imageFit !== "logo" && (

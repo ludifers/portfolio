@@ -164,7 +164,9 @@ function ProjectDetail() {
               <img
                 src={project.image}
                 alt={`${project.title} preview`}
-                className={`h-[18rem] w-full sm:h-[26rem] ${imageMode} ${imagePositionClass}`}
+                className={project.imageFit === "screenshot"
+                  ? "block h-auto w-full"
+                  : `h-[18rem] w-full sm:h-[26rem] ${imageMode} ${imagePositionClass}`}
               />
             </div>
           </section>
