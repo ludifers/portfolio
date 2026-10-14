@@ -230,6 +230,51 @@ function ProjectDetail() {
           </div>
         </section>
 
+        {project.developmentProcess && (
+          <section
+            className="grid gap-8 border-b border-zinc-800 py-10 lg:grid-cols-[18rem_minmax(0,1fr)]"
+            aria-labelledby="development-process-heading"
+          >
+            <div>
+              <h2
+                id="development-process-heading"
+                className="text-xs font-semibold tracking-[0.28em] text-cyan-400 sm:tracking-[0.4em]"
+              >
+                DEVELOPMENT PROCESS
+              </h2>
+              <div className="mt-5 h-px w-20 bg-cyan-400"></div>
+            </div>
+            <div className="min-w-0">
+              <p className="max-w-3xl leading-relaxed text-gray-300">
+                {project.developmentProcess.intro}
+              </p>
+              <details key={project.id} className="group mt-6">
+                <summary className="inline-flex cursor-pointer list-none items-center gap-3 rounded-lg border border-cyan-800/70 bg-cyan-500/10 px-4 py-3 text-sm font-semibold text-cyan-300 transition hover:border-cyan-400 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-400 [&::-webkit-details-marker]:hidden">
+                  <span className="group-open:hidden">Read more</span>
+                  <span className="hidden group-open:inline">Read less</span>
+                  <span aria-hidden="true" className="transition-transform group-open:rotate-180">
+                    ↓
+                  </span>
+                </summary>
+                <div className="mt-8 max-w-3xl space-y-8">
+                  {project.developmentProcess.sections.map((section, index) => (
+                    <article key={section.title} className="border-l border-cyan-900/70 pl-5 sm:pl-6">
+                      <p className="mb-2 text-xs font-semibold tracking-[0.2em] text-cyan-500">
+                        STEP {String(index + 1).padStart(2, "0")}
+                      </p>
+                      <h3 className="text-lg font-semibold text-white">{section.title}</h3>
+                      <div className="mt-3 space-y-4 leading-relaxed text-gray-400">
+                        {section.paragraphs.map((paragraph) => (
+                          <p key={paragraph}>{paragraph}</p>
+                        ))}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </details>
+            </div>
+          </section>
+        )}
       </div>
     </main>
   )

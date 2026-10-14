@@ -1,5 +1,133 @@
 export const projects = [
   {
+    id: "warehouse-simulator",
+    title: "Warehouse Simulator",
+    image: "/projects/warehouse-simulator.png",
+    imageFit: "contain",
+    category: "SIMULATION",
+    status: "IN_PROGRESS",
+    featured: false,
+    summary:
+      "A C++ warehouse fleet simulator with autonomous robots, BFS and A* pathfinding, traffic coordination, and delivery performance tracking.",
+    details:
+      "Built with SFML 3, C++17, and CMake, the simulator supports up to twelve robots in a 30-by-20 warehouse grid, with configurable runs, route visualization, and a results dashboard.",
+    problem:
+      "Multiple warehouse robots must find routes through shared aisles, collect orders, and reach a common delivery station without overlapping. Congestion can reduce throughput or bring the fleet to a standstill.",
+    solution:
+      "Combine BFS and A* route planning with robot occupancy checks, rotating movement priority, configurable speeds, and gridlock detection. Track delivery throughput, movement, waits, and search performance throughout each run.",
+    role:
+      "Developed the simulation from a manually controlled robot prototype into a configurable autonomous fleet, adding pathfinding, traffic rules, visual controls, performance measurements, and results screens.",
+    features: [
+      "30-by-20 warehouse grid",
+      "Configurable fleet of 1–12 robots",
+      "BFS and A* pathfinding comparison",
+      "Robot occupancy and collision checks",
+      "Random pickups beside shelves",
+      "Automatic pickup and delivery",
+      "Configurable order targets and speeds",
+      "Color-coded task locations",
+      "Selected robot route visualization",
+      "Manual Robot 1 controls",
+      "Delivery station and fleet gridlock detection",
+      "Live throughput and movement statistics",
+      "Per-robot results dashboard",
+    ],
+    developmentProcess: {
+      intro:
+        "I started with a single keyboard-controlled robot and developed it into an autonomous fleet simulator. Along the way, I worked through dependency setup, movement timing, route planning, shared-space traffic, and performance tracking.",
+      sections: [
+        {
+          title: "Getting the graphics prototype running",
+          paragraphs: [
+            "I started by downloading SFML from GitHub so I could draw the warehouse simulation in C++. During setup, the build tried to download an additional library called Mbed TLS. To get the graphics prototype running, I temporarily disabled audio and networking. Once the build succeeded, I launched a window displaying a green circle to confirm that rendering worked.",
+          ],
+        },
+        {
+          title: "Controlling movement with a clock",
+          paragraphs: [
+            "Next, I added a blue robot and connected its movement to the WASD keys. Initially, the robot moved too quickly because the program checked for keyboard input every frame. I added a clock-based delay so the robot could move one grid cell every 0.15 seconds, making its movement easier to control.",
+          ],
+        },
+        {
+          title: "Building the warehouse and delivery loop",
+          paragraphs: [
+            "I organized the warehouse into a grid with 30 columns and 20 rows, using 40-pixel cells. A two-dimensional array represented floors, walls, and shelves. Boundary walls defined the edges, while repeating shelf groups created storage areas with open aisles between them.",
+            "Before allowing movement, I checked whether the destination was open floor. This prevented the robot from passing through walls or shelves. I then searched for open cells beside shelves and used them as possible random pickup locations.",
+            "I added a fixed delivery station and a carrying state. Reaching a pickup automatically collected an order; reaching the station completed it, increased the order counter, and generated another pickup. Yellow pickup markers, a purple station, and window-title instructions made the task clear.",
+          ],
+        },
+        {
+          title: "Adding a configurable setup screen",
+          paragraphs: [
+            "After building the single-robot prototype, I added a setup screen for the fleet version. Users can choose one to twelve robots, an order target from 10 to 200, BFS or A* pathfinding, robot speed, and a gridlock timeout. Keyboard and mouse controls let users change these settings without editing the source code.",
+            "I kept the clock-based movement system and made its interval configurable: 0.24 seconds per cell for slow movement, 0.16 for normal, and 0.09 for fast. Each interval triggers one simulation step while the window continues rendering at up to 60 frames per second.",
+          ],
+        },
+        {
+          title: "Expanding from one robot to a fleet",
+          paragraphs: [
+            "I created a robot structure to store each robot’s position, assigned pickup, carrying state, planned route, deliveries, steps, and waits. Each robot has its own color, numbered label, and starting position.",
+            "Pickup markers have yellow centers surrounded by the assigned robot’s color. When assigning new pickups, the program avoids locations already assigned to other robots that are still collecting orders.",
+          ],
+        },
+        {
+          title: "Implementing BFS and A* pathfinding",
+          paragraphs: [
+            "I added automatic route planning so robots navigate to their pickups and then to the delivery station. Breadth-first search explores neighboring cells outward until it finds a route. A* prioritizes cells using the cost traveled so far and an estimate of the remaining distance.",
+            "For A*, I used Manhattan distance, which adds the horizontal and vertical separation between two cells. This matches the grid’s up, down, left, and right movement rules. Both searches record how cells were reached, then reconstruct the route from the destination back to the starting point.",
+          ],
+        },
+        {
+          title: "Coordinating traffic in shared aisles",
+          paragraphs: [
+            "Multiple robots can block each other or compete for the delivery station. I added occupancy checks so each robot treats the other robots’ current positions as temporary obstacles. Before moving, it checks that its next cell is unoccupied, and it recalculates its route each simulation step to respond to changing traffic.",
+            "I also rotate the order in which robots receive their movement turns, avoiding giving the same robot first access every time. These rules prevent overlapping positions while still allowing congestion and deadlock scenarios to occur.",
+          ],
+        },
+        {
+          title: "Measuring pathfinding performance",
+          paragraphs: [
+            "For each autonomous routing decision, I run both BFS and A* against the same warehouse and robot-position snapshot. The selected algorithm determines which route the robot follows.",
+            "I record explored nodes and search duration in microseconds. Average node counts appear during the simulation, while the results screen also shows average search timings. This lets users examine how much work each algorithm performs under the same immediate conditions.",
+          ],
+        },
+        {
+          title: "Visualizing routes and keeping manual controls",
+          paragraphs: [
+            "I added dots showing the selected robot’s planned route, with Tab cycling through the fleet. Pressing M switches Robot 1 between autonomous movement and WASD control while the other robots continue operating automatically.",
+            "Manual movement follows the same wall, shelf, and robot collision rules. This makes it possible to interact with the fleet and deliberately create traffic problems for testing.",
+          ],
+        },
+        {
+          title: "Detecting gridlock",
+          paragraphs: [
+            "I added checks for an autonomous fleet that cannot move for the selected timeout of 6, 12, or 20 simulated seconds. When that happens, the run ends with a fleet deadlock message.",
+            "I also check for manually controlled Robot 1 occupying the delivery station while loaded robots wait nearby. If that blockage lasts for the selected timeout, the simulator reports delivery station gridlock. If Robot 1 is on the station and all accessible neighboring cells remain occupied for approximately 1.5 simulated seconds, it reports that the robot is trapped.",
+          ],
+        },
+        {
+          title: "Tracking fleet and individual performance",
+          paragraphs: [
+            "I expanded the order counter into a live dashboard showing completed orders, simulated time, orders per minute, total cells traveled, and blocked or waiting events. Simulated time is calculated from the number of simulation steps and the selected movement interval.",
+            "The utilization measure divides successful movements by successful movements plus recorded waits. Each robot separately tracks deliveries, steps, and waits so users can compare individual contributions as well as overall fleet activity.",
+          ],
+        },
+        {
+          title: "Finishing with controls and a results screen",
+          paragraphs: [
+            "I organized the application into setup, simulation, and results screens. Users can pause, switch between BFS and A*, restart, or exit. A run ends when the order target is reached or a defined gridlock condition is detected.",
+            "The results screen explains why the run ended and presents fleet statistics, algorithm measurements, and a per-robot breakdown. Users can run again with the same setup or return to the menu to explore different conditions.",
+          ],
+        },
+      ],
+    },
+    stack: ["C++17", "SFML 3", "CMake", "BFS", "A*", "Simulation"],
+    links: {
+      github: "https://github.com/ludifers/Warehouse",
+      demo: "",
+    },
+  },
+  {
     id: "deadmans-tale",
     title: "Deadman's Tale",
     category: "GAME_DEVELOPMENT",
