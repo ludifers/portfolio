@@ -133,7 +133,7 @@ export const projects = [
     category: "GAME_DEVELOPMENT",
     status: "COMPLETE",
     featured: true,
-    showcaseOrder: 1,
+    showcaseOrder: 2,
     summary:
       "A pirate adventure game developed in Unity with exploration, combat, progression, multiplayer systems, and a custom user interface.",
     image: "/projects/deadmans-tale.png",
@@ -305,7 +305,7 @@ export const projects = [
     category: "AI_TOOLS",
     status: "COMPLETE",
     featured: true,
-    showcaseOrder: 2,
+    showcaseOrder: 3,
     summary:
       "A public Outlook add-in template that helps developers build their own AI email assistant without using my private backend or API key.",
     image: "/projects/outlookai-template.png",
@@ -422,7 +422,7 @@ export const projects = [
     category: "EMBEDDED_SYSTEMS",
     status: "IN_PROGRESS",
     featured: true,
-    showcaseOrder: 3,
+    showcaseOrder: 1,
     summary:
       "A smart wheelchair prototype that combines computer vision, environmental sensing, and embedded control to improve navigation and obstacle awareness.",
     image: "/projects/navi-smart-wheelchair.png",

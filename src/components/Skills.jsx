@@ -1,7 +1,12 @@
 const skillGroups = [
   {
+    title: "EMBEDDED",
+    summary: "Hardware platforms and sensing tools used in my embedded projects.",
+    skills: ["Raspberry Pi", "ESP32", "Sensor Integration", "OpenCV"],
+  },
+  {
     title: "PROGRAMMING",
-    summary: "Languages used for systems, scripts, and application logic.",
+    summary: "C/C++ and Python for systems programming, processing, and control.",
     skills: ["C", "C++", "Python", "JavaScript", "Lua"],
   },
   {
@@ -13,11 +18,6 @@ const skillGroups = [
     title: "WEB_SYSTEMS",
     summary: "Frontend and data tools for building interactive software.",
     skills: ["React", "Tailwind CSS", "MySQL", "REST APIs"],
-  },
-  {
-    title: "AI_TOOLS",
-    summary: "Practical use of AI tools for coding, prototyping, and research.",
-    skills: ["AI-Assisted Development", "Prompting", "LLMs", "Automation"],
   },
   {
     title: "TOOLS",
@@ -39,8 +39,8 @@ function Skills() {
         <div className="w-20 h-px bg-cyan-400 mt-6"></div>
 
         <p className="text-gray-400 mt-4 max-w-2xl leading-relaxed">
-          Systems-level proficiency across software, hardware, and engineering
-          workflows.
+          Embedded platforms, systems programming, and digital design, supported
+          by software tools and engineering workflows.
         </p>
 
         <div className="grid gap-4 mt-8 sm:mt-10 md:grid-cols-2 xl:grid-cols-5">

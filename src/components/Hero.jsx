@@ -17,13 +17,13 @@ function Hero() {
       <h1 className="text-4xl font-bold sm:text-6xl">Shay Akbari</h1>
 
       <p className="text-base text-cyan-400 mt-4 leading-relaxed sm:text-xl">
-        COMPUTER ENGINEERING // EMBEDDED SYSTEMS // INTERACTIVE DESIGN
+        COMPUTER ENGINEERING // EMBEDDED SYSTEMS // DIGITAL DESIGN
       </p>
 
       <p className="text-base text-gray-400 mt-5 max-w-3xl leading-relaxed sm:text-xl">
-        I build software-driven systems that connect code, hardware, and user
-        experience, from smart mobility prototypes to interactive games and
-        responsive physical environments.
+        I build systems that connect software to physical hardware, with a focus
+        on embedded control, sensor integration, and digital design. My work
+        includes smart mobility prototypes and hardware-connected software.
       </p>
 
       <div className="flex flex-col gap-3 mt-6 sm:flex-row sm:gap-4">

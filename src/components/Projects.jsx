@@ -334,8 +334,8 @@ function Projects({ preview = false }) {
             <div className="flex flex-col gap-5 mt-4 lg:flex-row lg:items-end lg:gap-8">
               <p className="text-gray-400 max-w-2xl leading-relaxed">
                 A complete archive of active, completed, and planned builds
-                across software, embedded systems, game development, and
-                interactive design.
+                across embedded systems, hardware-software integration,
+                simulation, and application development.
               </p>
 
               <div className="flex flex-wrap justify-start gap-3 lg:flex-shrink-0">

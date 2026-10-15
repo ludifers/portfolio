@@ -1,18 +1,18 @@
 # NovaBlooma Portfolio
 
-Personal portfolio site for Shaya Akbari, a Computer Engineering senior at the University of Central Florida focused on game development, embedded systems, hardware-software projects, and AI-assisted tools.
+Personal portfolio site for Shaya Akbari, a Computer Engineering senior at the University of Central Florida focused on embedded systems, sensor integration, digital design, and hardware-software projects.
 
 Live site: [https://novablooma.com](https://novablooma.com)
 
 ## Overview
 
-This portfolio highlights selected engineering and software projects, including game development work, embedded systems prototypes, full-stack web projects, and AI tool templates.
+This portfolio leads with embedded systems and hardware-software integration, alongside supporting work in simulation, application development, and AI tools.
 
 ## Featured Projects
 
+- **N.A.V.I. Smart Wheelchair** - Embedded systems prototype combining computer vision, sensing, and hardware control.
 - **Deadman's Tale** - Unity pirate adventure game with exploration, combat, progression, multiplayer systems, and custom UI.
 - **OutlookAI Template** - Public Outlook add-in template for building an AI-assisted email reply tool without using private backend credentials.
-- **N.A.V.I. Smart Wheelchair** - Embedded systems prototype combining computer vision, sensing, and hardware control.
 
 ## Tech Stack
 
